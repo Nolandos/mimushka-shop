@@ -1,9 +1,25 @@
 import React from 'react';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { 
+  MainLayout,
+  Basket,
+  Contact,
+  FAQ,
+  Home,
+  Regulations 
+} from './components';
 
 function App() {
   return (
-    <div className="App"></div>
+    <MainLayout>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/basket" exact component={Basket} />
+        <Route path="/contact" exact component={Contact} />
+        <Route path="/faq" exact component={FAQ} />
+        <Route path="/regulations" exact component={Regulations} />
+      </Switch>
+    </MainLayout>
   );
 }
 
