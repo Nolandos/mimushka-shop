@@ -1,8 +1,9 @@
 import React from 'react';
+import './PreviewProduct.scss';
 
 const PreviewProduct = () => (
-  <div>
-    <h1>PreviewProduct</h1>
+  <div className="preview-product">
+    
   </div>
 );
 

@@ -1,8 +1,11 @@
 import React from 'react';
+import './Home.scss';
+import { Products, Sidebar } from '../../index';
 
 const Home = () => (
-  <div>
-    <h1>Home</h1>
+  <div className="home">
+    <Sidebar />
+    <Products />
   </div>
 );
 

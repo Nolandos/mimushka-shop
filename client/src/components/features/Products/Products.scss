@@ -1,0 +1,9 @@
+@import '../../../styles/settings.scss';
+
+.products {
+    border: 2px solid green;
+    display: flex;
+    padding: $base-size;
+    justify-content: center;
+    flex-wrap: wrap;
+}
