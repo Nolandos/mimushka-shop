@@ -5,7 +5,7 @@ import { Products, Sidebar } from '../../index';
 const Home = () => (
   <div className="home">
     <Sidebar />
-    <Products />
+    <Products initialPage={1} productsPerPage={6} />
   </div>
 );
 

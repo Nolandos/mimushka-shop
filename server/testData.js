@@ -46,7 +46,20 @@ const loadTestData = async () => {
         additionalInfo: "Promocja",
         image: "./books.png",
     },{
-        id: 7,
+        id: 8,
+        name: "Produkt 7",
+        price: "130zł",
+        additionalInfo: "Promocja",
+        image: "./books.png",
+    },{
+        id: 9,
+        name: "Produkt 7",
+        price: "130zł",
+        additionalInfo: "Promocja",
+        image: "./books.png",
+    },
+    ,{
+        id: 10,
         name: "Produkt 7",
         price: "130zł",
         additionalInfo: "Promocja",
