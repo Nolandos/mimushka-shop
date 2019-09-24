@@ -7,7 +7,7 @@ import './MainMenu.scss';
 const MainMenu = ({ links, location }) => (
   <ul className="main-menu">
     { links.map((link, index) =>
-      <li key={index}>
+      <li className={link.className} key={index}>
         <Link className={(location.pathname === link.path && 'active') || ''} to={link.path}>{link.title}</Link>
       </li>
     )}
@@ -17,7 +17,7 @@ const MainMenu = ({ links, location }) => (
 MainMenu.propTypes = {
   links: PropTypes.arrayOf(PropTypes.shape({
     path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.isRequired,
   })),
 };
 
