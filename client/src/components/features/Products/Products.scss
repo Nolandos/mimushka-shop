@@ -2,7 +2,15 @@
 
 .products {
     display: flex;
+    position: relative;
     padding: $base-size;
     justify-content: center;
     flex-wrap: wrap;
+    min-height: 1100px;
+    align-content: flex-start;
+    
+    .pagination {
+        position: absolute;
+        bottom: -25px;
+    }
 }
