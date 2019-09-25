@@ -101,7 +101,9 @@ const initialState = {
 export default function ordersReducer(state = initialState, action = {}) {
     switch (action.type) {
       case LOAD_PRODUCTS:
-          return  { ...state, data: action.payload };
+        return  { ...state, data: action.payload };
+      case LOAD_SINGLE_PRODUCT:
+        return { ...state, singleProduct: action.payload };
       case LOAD_PRODUCTS_PAGE:
         return {
           ...state,

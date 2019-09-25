@@ -5,8 +5,7 @@ import { loadSingleProductRequest } from '../../../redux/productsReducer';
 const SingleProduct = ({ match }) => {
     const dispatch = useDispatch();
     const singleProduct = useSelector(({ products }) => products.singleProduct);
-    const request = useSelector(({ products }) => products.request); 
-    const { name, price, image } = singleProduct;
+    const { name, price, image, description } = singleProduct;
 
     useEffect(() => {
       dispatch(loadSingleProductRequest(match.params.id));
@@ -20,7 +19,7 @@ const SingleProduct = ({ match }) => {
             <div className="content">
                 <div className="name">{ name }</div>
                 <div className="price">{ price }</div>
-                <div className="description">lorem ipsum la la la</div>
+                <div className="description">{ description }</div>
                 <button>Dodaj do Koszyka</button>
             </div>
         </div>

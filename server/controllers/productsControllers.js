@@ -32,3 +32,13 @@ exports.getProductsByRange = async function (req, res) {
   }
 
 };
+
+exports.getSingleProduct = async (req, res) => {  
+
+  try {
+      res.status(200).json(await Product.findOne({id: req.params.id}));
+  } catch (err) {
+      res.status(500).res.json(err);
+  }
+
+};

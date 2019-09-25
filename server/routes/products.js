@@ -11,5 +11,7 @@ const router = express.Router();
 router.get('/products', productControllers.getProducts );
 // get products by range
 router.route('/products/range/:startAt/:limit').get(productControllers.getProductsByRange);
+//get single product
+router.get('/products/:id', productControllers.getSingleProduct);
 
 module.exports = router;

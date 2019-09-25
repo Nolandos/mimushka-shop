@@ -1,69 +1,80 @@
 const Product = require('./models/productsModel');
+const uuid = require('uuid');
 
 const loadTestData = async () => {
 
   const data = [
     {
-        id: 1,
-        name: "Produkt 1",
+        id: uuid(),
+        name: "Kokon",
         price: "120zł",
         additionalInfo: "Ostatnia sztuka",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
-        id: 2,
-        name: "Produkt 2",
+        id: uuid(),
+        name: "Poduszka",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
-        id: 3,
-        name: "Produkt 3",
+        id: uuid(),
+        name: "Kocyk",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
-        id: 4,
-        name: "Produkt 4",
+        id: uuid(),
+        name: "Rożek",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
-        id: 5,
-        name: "Produkt 5",
+        id: uuid(),
+        name: "Koszulka",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
-        id: 6,
+        id: uuid(),
         name: "Produkt 6",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
-        id: 7,
+        id: uuid(),
         name: "Produkt 7",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
-        id: 8,
-        name: "Produkt 7",
+        id: uuid(),
+        name: "Produkt 8",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
-        id: 9,
-        name: "Produkt 7",
+        id: uuid(),
+        name: "Produkt 9",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },
     ,{
-        id: 10,
-        name: "Produkt 7",
+        id: uuid(),
+        name: "Produkt 10",
         price: "130zł",
         additionalInfo: "Promocja",
-        image: "./books.png",
+        image: "http://localhost:3000/images/books.png",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     }
   ];
 
