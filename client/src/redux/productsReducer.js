@@ -7,6 +7,7 @@ const createActionName = name => `app/${reducerName}/${name}`;
 
 // ACTION TYPES
 export const LOAD_PRODUCTS = createActionName('LOAD_PRODUCTS');
+export const LOAD_SINGLE_PRODUCT = createActionName('LOAD_SINGLE_PRODUCT');
 export const LOAD_PRODUCTS_PAGE = createActionName('LOAD_PRODUCTS_PAGE');
 export const START_REQUEST = createActionName('START_REQUEST');
 export const END_REQUEST = createActionName('END_REQUEST');
@@ -15,6 +16,7 @@ export const RESET_REQUEST = createActionName('RESET_REQUEST');
 
 // ACTIONS 
 export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
+export const loadSingleProduct = payload => ({payload, type: LOAD_SINGLE_PRODUCT });
 export const loadProductsByPage = payload => ({ payload, type: LOAD_PRODUCTS_PAGE });
 export const startRequest = () => ({ type: START_REQUEST });
 export const endRequest = () => ({ type: END_REQUEST });
@@ -35,6 +37,20 @@ export const loadProductsRequest = () => {
       }
     };
   };
+
+export const loadSingleProductRequest = (id) => {
+  return async dispatch => {
+    dispatch(startRequest());
+  
+    try {
+      let res = await axios.get(`${API_URL}/products/${id}`);
+      await dispatch(loadSingleProduct(res.data));  
+      dispatch(endRequest());
+    } catch(e) {
+      dispatch(errorRequest(e.message));
+    }
+  };
+};
 
 export const loadProductsByPageRequest = (page, PerPage) => {
   return async dispatch => {
