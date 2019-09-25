@@ -14,6 +14,7 @@ import FAQ from './pages/FAQ/FAQ';
 import Home from './pages/Home/Home';
 import Regulations from './pages/Regulations/Regulations';
 import SortList from './common/SortList/SortList';
+import SingleProductPage from './pages/SingleProduct/SingleProduct';
 
 export {
 	Logo,
@@ -31,5 +32,6 @@ export {
     FAQ,
     Home,
     Regulations,
-    SortList
+    SortList,
+    SingleProductPage
 }

@@ -6,7 +6,8 @@ import {
   Contact,
   FAQ,
   Home,
-  Regulations 
+  Regulations,
+  SingleProductPage
 } from './components';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <MainLayout>
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/product/:id" exact component={ SingleProductPage } />
         <Route path="/basket" exact component={Basket} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/faq" exact component={FAQ} />

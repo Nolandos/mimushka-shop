@@ -74,7 +74,7 @@ const initialState = {
       error: null,
       success: null
     },
-    singleProducts: {},
+    singleProduct: {},
     randomProducts: {},
     amount: 0,
     productsPerPage: 10,
