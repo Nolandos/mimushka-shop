@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadSingleProductRequest } from '../../../redux/productsReducer';
+import './SingleProduct.scss';
 
 const SingleProduct = ({ match }) => {
     const dispatch = useDispatch();
@@ -13,14 +14,14 @@ const SingleProduct = ({ match }) => {
   
     return (
         <div className="single-product">
-            <div className="photo-box">
+            <div className="single-product__photo-box">
                 <img src={ image } alt="product-photo"></img>
             </div>
-            <div className="content">
-                <div className="name">{ name }</div>
-                <div className="price">{ price }</div>
-                <div className="description">{ description }</div>
-                <button>Dodaj do Koszyka</button>
+            <div className="single-product__content">
+                <div className="single-product__name">{ name }</div>
+                <div className="single-product__price">{ price }</div>
+                <div className="single-product__description">{ description }</div>
+                <button className="add-cart-btn">Dodaj do Koszyka</button>
             </div>
         </div>
     );
