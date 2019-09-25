@@ -18,17 +18,23 @@
         color: #000;
     }
     .preview-product__photo-box {
-        width: 250px;
+        margin-top: 20px;
+        width: 150px;
         height: 150px;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
 
         .preview-product__photo {
-            max-width: 100%;
-            height: auto;
+            display: block;
+            max-height: 150px;
+            max-width: 150px;
         }
     }
 
     .preview-product__name {
-        margin-top: 35px;
+        margin-top: 20px;
         color: #000;
     }
 
