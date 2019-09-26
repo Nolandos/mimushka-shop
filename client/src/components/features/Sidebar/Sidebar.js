@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.scss';
+//import './Sidebar.scss';
 import { SortList } from '../../index';
 
 const Sidebar = () => (

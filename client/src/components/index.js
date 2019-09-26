@@ -8,13 +8,15 @@ import Sidebar from './features/Sidebar/Sidebar';
 import MainLayout from './layouts/MainLayout/MainLayout';
 import MainMenu from './layouts/MainMenu/MainMenu';
 import PageContainer from './layouts/PageContainer/PageContainer';
-import Basket from './pages/Basket/Basket';
+import BasketPage from './pages/Basket/Basket';
 import Contact from './pages/Contact/Contact';
 import FAQ from './pages/FAQ/FAQ';
 import Home from './pages/Home/Home';
 import Regulations from './pages/Regulations/Regulations';
 import SortList from './common/SortList/SortList';
 import SingleProductPage from './pages/SingleProduct/SingleProduct';
+import Button from './common/Button/Button';
+import ShopBasket from './features/ShopBasket/ShopBasket';
 
 export {
 	Logo,
@@ -27,11 +29,13 @@ export {
     MainLayout,
     MainMenu,
     PageContainer,
-    Basket,
+    BasketPage,
     Contact,
     FAQ,
     Home,
     Regulations,
     SortList,
-    SingleProductPage
+    SingleProductPage,
+    Button,
+    ShopBasket
 }

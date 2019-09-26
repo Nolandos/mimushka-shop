@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadSingleProductRequest } from '../../../redux/productsReducer';
 import './SingleProduct.scss';
 
+import { Button } from '../../index';
+
 const SingleProduct = ({ match }) => {
     const dispatch = useDispatch();
     const singleProduct = useSelector(({ products }) => products.singleProduct);
@@ -21,7 +23,7 @@ const SingleProduct = ({ match }) => {
                 <div className="single-product__name">{ name }</div>
                 <div className="single-product__price">{ price }</div>
                 <div className="single-product__description">{ description }</div>
-                <button className="add-cart-btn">Dodaj do Koszyka</button>
+                <Button>Dodaj do koszyka</Button>
             </div>
         </div>
     );
