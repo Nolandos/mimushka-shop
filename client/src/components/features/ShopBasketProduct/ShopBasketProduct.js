@@ -1,7 +1,8 @@
 import React from 'react';
 import './ShopBasketProduct.scss';
+import { useSelector } from 'react-redux';
 
-const ShopBasketProduct = ({ image, name, description, price }) => {
+const ShopBasketProduct = ({ id, image, name, description, price, amount, add }) => {
     
     return (
         <div className="shop-basket-product">
@@ -15,9 +16,9 @@ const ShopBasketProduct = ({ image, name, description, price }) => {
             <div className="shop-basket-product__price">{ price }</div>
             <div className="shop-basket-product__operations">
                 <div className="shop-basket-product__add-product">
-                    <button>-</button>
-                    <div className="shop-basket-product__amount">1</div>
-                    <button>+</button>
+                    <button className="btn-remove">-</button>
+                    <div className="shop-basket-product__amount">{ amount }</div>
+                    <button onClick={ () => add(id) } className="btn-add">+</button>
                 </div>
                 <div className="shop-basket-product__remove-product">
                     usuń produkt

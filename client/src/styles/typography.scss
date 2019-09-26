@@ -9,11 +9,10 @@ a {
   color: $color-text-light;
 
   &:hover {
-    color: $color-text;
+    color: $color-text-candy-light;
   }
 
   &.active {
-    color: $color-text;
-    //border-bottom: 1px solid $color-text-light;
+    color: $color-text-candy;
   }
 }

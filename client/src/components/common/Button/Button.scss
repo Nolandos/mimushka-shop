@@ -1,13 +1,18 @@
+@import '../../../styles/settings.scss';
+
 .button {
     color: #fff;
-    background-color: #000;
     border: none;
     padding: 8px 30px;
     font-size: 0.9em;
     cursor: pointer;
     outline: none;
 
+    &--primary {
+        background-color: $color-text-candy;
+    }
+
     &:hover {
-        background-color: rgb(71, 64, 64);
+        background-color: $color-text-candy-light;
     }    
 }
