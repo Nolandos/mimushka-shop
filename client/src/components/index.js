@@ -17,6 +17,7 @@ import SortList from './common/SortList/SortList';
 import SingleProductPage from './pages/SingleProduct/SingleProduct';
 import Button from './common/Button/Button';
 import ShopBasket from './features/ShopBasket/ShopBasket';
+import ShopBasketProduct from './features/ShopBasketProduct/ShopBasketProduct';
 
 export {
 	Logo,
@@ -37,5 +38,6 @@ export {
     SortList,
     SingleProductPage,
     Button,
-    ShopBasket
+    ShopBasket,
+    ShopBasketProduct
 }

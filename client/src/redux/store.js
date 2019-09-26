@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 
 // import reducers
 import products from './productsReducer';
+import shopBasket from './shopBasketReducer';
 
 // combine reducers
 const allReducers = combineReducers({
     products,
+    shopBasket
 });
 
 //CREATE STRORE
