@@ -1,9 +1,6 @@
 import React,{ useState } from 'react';
 import './NavBar.scss';
-import { FaShoppingCart } from "react-icons/fa";
-
-import { MainMenu, Logo } from '../../index';
-
+import { MainMenu, Logo, BasketIcon } from '../../index';
 
 const NavBar = () => {
   const [links] = useState([
@@ -11,7 +8,7 @@ const NavBar = () => {
     { path: '/faq', title: 'FAQ', className: 'faq' },
     { path: '/contact', title: 'Kontakt' , className: 'contact' },
     { path: '/regulations', title: 'Regulamin', className: 'regulations' },
-    { path: '/basket', title: <FaShoppingCart />, className: 'basket' }
+    { path: '/basket', title: <BasketIcon />, className: 'basket' }
   ]);
 
   return (

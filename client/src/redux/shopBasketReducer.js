@@ -1,5 +1,8 @@
 //INITIAL STATE
-const initialState = []
+const initialState = {
+    products: [],
+    totalAmount: 0
+}
 
 // ACTION NAME CREATOR
 const reducerName = 'products';
@@ -20,19 +23,22 @@ export const addProduct = (id, payload) => ({ id, payload, type: ADD_PRODUCT });
 export default function shopBasketReducer(state=initialState, action = {}) {
     switch(action.type) {
         case ADD_UNIT:
-            state.map(product => { if(product.id === action.payload ) product.amount++ })
-            return state;
+            state.products.map(product => { if(product.id === action.payload ) product.amount++})
+            return { ...state, totalAmount: state.totalAmount + 1 };
         case REMOVE_UNIT:
-            state.map(product => {if(product.id === action.payload ) product.amount--})
-            return state;
+            state.products.map(product => {if(product.id === action.payload ) product.amount--})
+            return { ...state, totalAmount: state.totalAmount - 1};
         case REMOVE_PRODUCT:
-            return state.filter(product => product.id !== action.payload);
+            const amountToRemove = state.products.find(product => action.payload === product.id).amount;
+            const productsNodDeleted = state.products.filter(product => product.id !== action.payload );
+            return { ...state, products: productsNodDeleted, totalAmount: state.totalAmount - amountToRemove };
         case ADD_PRODUCT:
-            let existed_product = state.find(product=> action.id === product.id);
+            let existed_product = state.products.find(product => action.id === product.id);
             if(!existed_product) {
-                return [...state, action.payload];
+                return {...state, products: [...state.products, action.payload], totalAmount: state.totalAmount + 1};
             } else {
-                state.map( item => { if(item.id === action.id) item.amount += 1 }) 
+                state.products.map( item => { if(item.id === action.id) item.amount += 1 }) 
+                return { ...state, totalAmount: state.totalAmount +1}
             }
         default:
             return state;

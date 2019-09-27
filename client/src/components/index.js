@@ -18,6 +18,7 @@ import SingleProductPage from './pages/SingleProduct/SingleProduct';
 import Button from './common/Button/Button';
 import ShopBasket from './features/ShopBasket/ShopBasket';
 import ShopBasketProduct from './features/ShopBasketProduct/ShopBasketProduct';
+import BasketIcon from './common/BasketIcon/BasketIcon';
 
 export {
 	Logo,
@@ -39,5 +40,6 @@ export {
     SingleProductPage,
     Button,
     ShopBasket,
-    ShopBasketProduct
+    ShopBasketProduct,
+    BasketIcon
 }

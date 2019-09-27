@@ -1,0 +1,36 @@
+@import '../../../styles/settings.scss';
+
+.basket-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__amount-field {
+        min-width: 20px;
+        min-height: 20px;
+        padding: 3px;
+        border-radius: 50%;
+        bottom: -13px;
+        right: -22px;
+        background-color: $color-text-candy;
+        color: #fff;
+        font-weight: bold;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__amount {
+        padding-left: 1px;
+        padding-bottom: 1px;
+        margin: 0;
+        height: 20px;
+        width: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.5em;
+    }
+}

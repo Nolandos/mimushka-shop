@@ -6,7 +6,7 @@ import './ShopBasket.scss';
 
 const ShopBasket = () => {
     const dispatch = useDispatch();
-    const products = useSelector(({ shopBasket }) => shopBasket);
+    const products = useSelector(({ shopBasket }) => shopBasket.products);
 
     const addUnitProduct = (id) => {
        dispatch(addUnit(id)); 
@@ -17,6 +17,7 @@ const ShopBasket = () => {
     }
 
     const removeOfProduct = (id) => {
+        
         dispatch(removeProduct(id));
     }
 
