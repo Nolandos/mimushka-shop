@@ -7,7 +7,7 @@ const loadTestData = async () => {
     {
         id: uuid(),
         name: "Kokon",
-        price: "120zł",
+        price: 50,
         amount: 1,
         additionalInfo: "Ostatnia sztuka",
         image: "http://localhost:3000/images/books.png",
@@ -15,7 +15,7 @@ const loadTestData = async () => {
     },{
         id: uuid(),
         name: "Poduszka",
-        price: "130zł",
+        price: 100,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
@@ -23,7 +23,7 @@ const loadTestData = async () => {
     },{
         id: uuid(),
         name: "Kocyk",
-        price: "130zł",
+        price: 115,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
@@ -31,7 +31,7 @@ const loadTestData = async () => {
     },{
         id: uuid(),
         name: "Rożek",
-        price: "130zł",
+        price: 119,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
@@ -39,7 +39,7 @@ const loadTestData = async () => {
     },{
         id: uuid(),
         name: "Koszulka",
-        price: "130zł",
+        price: 140,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
@@ -47,7 +47,7 @@ const loadTestData = async () => {
     },{
         id: uuid(),
         name: "Produkt 6",
-        price: "130zł",
+        price: 130,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
@@ -55,7 +55,7 @@ const loadTestData = async () => {
     },{
         id: uuid(),
         name: "Produkt 7",
-        price: "130zł",
+        price: 50,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
@@ -63,7 +63,7 @@ const loadTestData = async () => {
     },{
         id: uuid(),
         name: "Produkt 8",
-        price: "130zł",
+        price: 110,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
@@ -80,7 +80,7 @@ const loadTestData = async () => {
     ,{
         id: uuid(),
         name: "Produkt 10",
-        price: "130zł",
+        price: 170,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",

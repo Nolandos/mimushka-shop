@@ -26,7 +26,7 @@ const SingleProduct = ({ match }) => {
             </div>
             <div className="single-product__content">
                 <div className="single-product__name">{ name }</div>
-                <div className="single-product__price">{ price }</div>
+                <div className="single-product__price">{ price } zł</div>
                 <div className="single-product__description">{ description }</div>
                 <Button action={ addToCart } variant="primary">Dodaj do koszyka</Button>
             </div>

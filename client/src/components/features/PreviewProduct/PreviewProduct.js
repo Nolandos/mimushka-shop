@@ -13,7 +13,7 @@ const PreviewProduct = props => {
         <img className="preview-product__photo" alt="product-photo" src={ image }></img>
       </div>
       <p className="preview-product__name">{ name }</p>
-      <p className="preview-product__price">{ price }</p>
+      <p className="preview-product__price">{ price } zł</p>
     </div>
   </Link>
   );
