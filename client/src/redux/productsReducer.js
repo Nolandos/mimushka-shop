@@ -91,7 +91,6 @@ const initialState = {
       success: null
     },
     singleProduct: {},
-    randomProducts: {},
     amount: 0,
     productsPerPage: 10,
     presentPage: 1

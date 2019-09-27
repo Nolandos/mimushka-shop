@@ -1,8 +1,8 @@
 import React from 'react';
 import './Button.scss';
 
-const Button = ({ variant = '', children }) => (
-    <button  className={ `button button--${variant}`}>
+const Button = ({ variant = '', children, action }) => (
+    <button onClick={ action }  className={ `button button--${variant}`}>
         { children }
     </button>
 );

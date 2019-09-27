@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ShopBasketProduct.scss';
-import { useSelector } from 'react-redux';
 
-const ShopBasketProduct = ({ id, image, name, description, price, amount, add }) => {
-    
+const ShopBasketProduct = ({ id, image, name, description, price, addUnit, removeUnit, amount, removeProduct }) => {
+    const [units, setUnits ] = useState (amount || 1);
+
+    const addUnitOfProduct = () => {
+        setUnits(units + 1);
+        addUnit(id);
+    }
+
+    const removeUnitOfProduct = () => {
+        if(units > 1) {
+            setUnits(units - 1);
+            removeUnit(id)
+        };
+    }
+
     return (
         <div className="shop-basket-product">
             <div className="shop-basket-product__photo-box">
@@ -16,13 +28,13 @@ const ShopBasketProduct = ({ id, image, name, description, price, amount, add })
             <div className="shop-basket-product__price">{ price }</div>
             <div className="shop-basket-product__operations">
                 <div className="shop-basket-product__add-product">
-                    <button className="btn-remove">-</button>
-                    <div className="shop-basket-product__amount">{ amount }</div>
-                    <button onClick={ () => add(id) } className="btn-add">+</button>
+                    <button onClick={ removeUnitOfProduct } className="btn-remove">-</button>
+                    <div className="shop-basket-product__amount">{ units }</div>
+                    <button onClick={ addUnitOfProduct } className="btn-add">+</button>
                 </div>
-                <div className="shop-basket-product__remove-product">
+                <button onClick={ () => removeProduct(id) } className="shop-basket-product__remove-product">
                     usuń produkt
-                </div>
+                </button>
             </div>
         </div>
     );

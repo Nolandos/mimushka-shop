@@ -1,48 +1,40 @@
 //INITIAL STATE
-const initialState = 
-    [
-        {
-        id: "5d8c76b7b4f6e8103c24e609",
-        name: "Kokon",
-        price: "120zł",
-        additionalInfo: "Ostatnia sztuka",
-        amount: 1,
-        image: "http://localhost:3000/images/books.png",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
-        }
-    ]
-
+const initialState = []
 
 // ACTION NAME CREATOR
 const reducerName = 'products';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 // ACTION TYPES
+export const ADD_UNIT = createActionName('ADD_UNIT');
+export const REMOVE_UNIT = createActionName('REMOVE_UNIT');
+export const REMOVE_PRODUCT = createActionName('REMOVE_PRODUCT');
 export const ADD_PRODUCT = createActionName('ADD_PRODUCT');
 
 // ACTIONS 
-export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
-
+export const addUnit = payload => ({ payload, type: ADD_UNIT });
+export const removeUnit = payload => ({ payload, type: REMOVE_UNIT });
+export const removeProduct = payload => ({ payload, type: REMOVE_PRODUCT });
+export const addProduct = (id, payload) => ({ id, payload, type: ADD_PRODUCT });
 
 export default function shopBasketReducer(state=initialState, action = {}) {
     switch(action.type) {
-        case ADD_PRODUCT:
-            state.map(item => {
-                if(item.id === action.payload) {
-                    item.amount = item.amount + 1;
-                }
-            }) 
+        case ADD_UNIT:
+            state.map(product => { if(product.id === action.payload ) product.amount++ })
             return state;
+        case REMOVE_UNIT:
+            state.map(product => {if(product.id === action.payload ) product.amount--})
+            return state;
+        case REMOVE_PRODUCT:
+            return state.filter(product => product.id !== action.payload);
+        case ADD_PRODUCT:
+            let existed_product = state.find(product=> action.id === product.id);
+            if(!existed_product) {
+                return [...state, action.payload];
+            } else {
+                state.map( item => { if(item.id === action.id) item.amount += 1 }) 
+            }
         default:
             return state;
     }
 }
-/*
-state.products.map(product => {
-    if(action.payload === product.id) {
-        product.amount = product.amount +1;
-       return product;
-   }
-   return product;
-});
-*/

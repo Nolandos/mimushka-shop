@@ -1,3 +1,5 @@
+@import '../../../styles/settings.scss';
+
 .shop-basket-product {
     display: flex;
     margin-top: 5%;
@@ -74,5 +76,18 @@
         align-items: center;
         justify-content: center;
         padding: 14px;
+    }
+
+    &__remove-product {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: $color-text-candy;
+        margin-top: 15px;
+
+        &:hover {
+            color: $color-text-candy-light;
+        }
     }
 }

@@ -8,6 +8,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Kokon",
         price: "120zł",
+        amount: 1,
         additionalInfo: "Ostatnia sztuka",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -15,6 +16,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Poduszka",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -22,6 +24,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Kocyk",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -29,6 +32,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Rożek",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -36,6 +40,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Koszulka",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -43,6 +48,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Produkt 6",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -50,6 +56,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Produkt 7",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -57,6 +64,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Produkt 8",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -64,6 +72,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Produkt 9",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
@@ -72,6 +81,7 @@ const loadTestData = async () => {
         id: uuid(),
         name: "Produkt 10",
         price: "130zł",
+        amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
