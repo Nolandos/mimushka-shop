@@ -1,4 +1,5 @@
 const Product = require('./models/productsModel');
+const Code = require('./models/codesModel');
 const uuid = require('uuid');
 
 const loadTestData = async () => {
@@ -88,11 +89,18 @@ const loadTestData = async () => {
     }
   ];
 
+    const codes = [{
+        id: uuid(),
+        name: "MIMI",
+        discount: 0.1,
+    }];
+
   try {
     let counter = await Product.countDocuments();
     if(counter === 0) {
       console.log('No products. Loading data...');
       await Product.create(data);
+      await Code.create(codes);
       console.log('Test data has been successfully loaded');
     }
   } catch (err) {
