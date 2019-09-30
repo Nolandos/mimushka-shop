@@ -26,23 +26,44 @@ export default function shopBasketReducer(state=initialState, action = {}) {
         case ADD_UNIT:
             const productPriceAdd = state.products.find(product => action.payload === product.id).price;
             state.products.map(product => { if(product.id === action.payload ) product.amount++})
-            return { ...state, totalAmount: state.totalAmount + 1, totalPrice: state.totalPrice += parseInt(productPriceAdd) };
+            return { 
+                ...state, 
+                totalAmount: state.totalAmount + 1, 
+                totalPrice: state.totalPrice += parseInt(productPriceAdd) 
+            };
         case REMOVE_UNIT:
             const productPriceRemove = state.products.find(product => action.payload === product.id).price;
             state.products.map(product => {if(product.id === action.payload ) product.amount--})
-            return { ...state, totalAmount: state.totalAmount - 1, totalPrice: state.totalPrice -= parseInt(productPriceRemove)};
+            return { 
+                ...state, 
+                totalAmount: state.totalAmount - 1, 
+                totalPrice: state.totalPrice -= parseInt(productPriceRemove)
+            };
         case REMOVE_PRODUCT:
             const amountToRemove = state.products.find(product => action.payload === product.id).amount;
             const productsPriceRemove = amountToRemove *(state.products.find(product => action.payload === product.id).price);
             const productsNodDeleted = state.products.filter(product => product.id !== action.payload );
-            return { ...state, products: productsNodDeleted, totalAmount: state.totalAmount - amountToRemove, totalPrice: state.totalPrice -= productsPriceRemove };
+            return { 
+                ...state, 
+                products: productsNodDeleted, 
+                totalAmount: state.totalAmount - amountToRemove, 
+                totalPrice: state.totalPrice -= productsPriceRemove 
+            };
         case ADD_PRODUCT:
             const existed_product = state.products.find(product => action.id === product.id);
             if(!existed_product) {
-                return {...state, products: [...state.products, action.payload], totalAmount: state.totalAmount + 1, totalPrice: state.totalPrice += parseInt(action.payload.price)};
+                return {
+                    ...state, 
+                    products: [...state.products, action.payload], 
+                    totalAmount: state.totalAmount + 1, 
+                    totalPrice: state.totalPrice += parseInt(action.payload.price)
+                };
             } else {
                 state.products.map( item => { if(item.id === action.id) item.amount += 1 }) 
-                return { ...state, totalAmount: state.totalAmount +1, totalPrice: state.totalPrice += parseInt(existed_product.price) }
+                return { ...state, 
+                    totalAmount: state.totalAmount +1, 
+                    totalPrice: state.totalPrice += parseInt(existed_product.price) 
+                }
             }
         default:
             return state;

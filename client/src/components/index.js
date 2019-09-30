@@ -19,6 +19,8 @@ import Button from './common/Button/Button';
 import ShopBasket from './features/ShopBasket/ShopBasket';
 import ShopBasketProduct from './features/ShopBasketProduct/ShopBasketProduct';
 import BasketIcon from './common/BasketIcon/BasketIcon';
+import SingleProduct from './features/SingleProduct/SingleProduct';
+import Discount from './common/Discount/Discount';
 
 export {
 	Logo,
@@ -41,5 +43,7 @@ export {
     Button,
     ShopBasket,
     ShopBasketProduct,
-    BasketIcon
+    BasketIcon,
+    SingleProduct,
+    Discount
 }

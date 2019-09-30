@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ShopBasketProduct } from '../../index';
 import { addUnit, removeUnit, removeProduct } from '../../../redux/shopBasketReducer';
-import { Button } from '../../index';
+import { Button, Discount } from '../../index';
 
 import './ShopBasket.scss';
 
@@ -35,7 +35,7 @@ const ShopBasket = () => {
                     removeProduct = { removeOfProduct }
                 />))}
             <div className="shop-basket__summary">
-                <input className="shop-basket__discount" placeholder="Kod rabatowy"></input>
+                <Discount />
                 <p className="shop-basket__total-price">{totalPrice} zł</p>
                 <Button variant="primary">Zapłać</Button>
             </div>

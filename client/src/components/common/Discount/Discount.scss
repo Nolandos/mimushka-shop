@@ -1,0 +1,26 @@
+@import '../../../styles/settings.scss';
+
+.discount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    &__input {
+        outline: none;
+        background-color: #f5f5f5;
+        width: 130px;
+        border: none;
+        padding: $base-size;
+        font-size: 0.8em;
+        text-transform: uppercase;
+
+        &--error {
+            border: 1px solid red;
+        }
+    }
+
+    &__error {
+        color: red;
+        display: none;
+    }
+}
