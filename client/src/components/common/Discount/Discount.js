@@ -1,16 +1,16 @@
 import React, { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './Discount.scss';
+import { checkDiscountCodeRequest } from '../../../redux/shopBasketReducer';
 
 const Discount = () => {
+    const dispatch = useDispatch();
     const inputEl = useRef(null);
+    const request = useSelector(({ requests }) => requests.cart_request);
 
     const checkCode = (e) => {
-        if(inputEl.current.value !== 'AAA') {
-            e.target.classList.add('discount__input--error');
-            document.querySelector('.discount__error').style.display = "block";
-        } else {
-            e.target.classList.remove('discount__input--error');
-            document.querySelector('.discount__error').style.display = "none";
+        if(inputEl.current.value.length === 4 ) {
+           dispatch(checkDiscountCodeRequest(inputEl.current.value));
         }
     }
 
@@ -19,10 +19,10 @@ const Discount = () => {
             <input 
                 className="discount__input" 
                 onChange={ checkCode } 
-                ref={inputEl} 
+                ref={ inputEl } 
                 placeholder="Kod rabatowy">
             </input>
-            <p className="discount__error">Błędny kod rabatowy !</p>
+            <p className="discount__error">{ request.error }</p>
         </div>
     );
 }

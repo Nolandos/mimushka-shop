@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 // import reducers
 import products from './productsReducer';
 import shopBasket from './shopBasketReducer';
+import requests from './requestsStatusReducer';
 
 // combine reducers
 const allReducers = combineReducers({
     products,
-    shopBasket
+    shopBasket,
+    requests
 });
 
 //CREATE STRORE

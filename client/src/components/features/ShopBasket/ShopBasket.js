@@ -9,7 +9,8 @@ import './ShopBasket.scss';
 const ShopBasket = () => {
     const dispatch = useDispatch();
     const products = useSelector(({ shopBasket }) => shopBasket.products);
-    const totalPrice = useSelector(({ shopBasket }) => shopBasket.totalPrice);
+    const discount = useSelector(({shopBasket}) => shopBasket.discount);
+    const totalPrice = useSelector(({shopBasket}) => Object.values(shopBasket.products).reduce((t, { price, amount }) => t + amount * parseInt(price), 0));
 
     const addUnitProduct = (id) => {
        dispatch(addUnit(id)); 
@@ -20,7 +21,6 @@ const ShopBasket = () => {
     }
 
     const removeOfProduct = (id) => {
-        
         dispatch(removeProduct(id));
     }
 
@@ -36,7 +36,7 @@ const ShopBasket = () => {
                 />))}
             <div className="shop-basket__summary">
                 <Discount />
-                <p className="shop-basket__total-price">{totalPrice} zł</p>
+                <p className="shop-basket__total-price">{ totalPrice * discount } zł</p>
                 <Button variant="primary">Zapłać</Button>
             </div>
         </div>

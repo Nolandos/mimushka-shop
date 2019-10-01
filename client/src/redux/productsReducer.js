@@ -1,53 +1,46 @@
 import axios from 'axios';
 import { API_URL } from '../config';
-
+import { startRequest, endRequest, errorRequest, resetRequest } from './requestsStatusReducer';
 // ACTION NAME CREATOR
 const reducerName = 'products';
+const requestName = 'products_request';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 // ACTION TYPES
 export const LOAD_PRODUCTS = createActionName('LOAD_PRODUCTS');
 export const LOAD_SINGLE_PRODUCT = createActionName('LOAD_SINGLE_PRODUCT');
 export const LOAD_PRODUCTS_PAGE = createActionName('LOAD_PRODUCTS_PAGE');
-export const START_REQUEST = createActionName('START_REQUEST');
-export const END_REQUEST = createActionName('END_REQUEST');
-export const ERROR_REQUEST = createActionName('ERROR_REQUEST');
-export const RESET_REQUEST = createActionName('RESET_REQUEST');
 
 // ACTIONS 
 export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
 export const loadSingleProduct = payload => ({payload, type: LOAD_SINGLE_PRODUCT });
 export const loadProductsByPage = payload => ({ payload, type: LOAD_PRODUCTS_PAGE });
-export const startRequest = () => ({ type: START_REQUEST });
-export const endRequest = () => ({ type: END_REQUEST });
-export const errorRequest = error => ({ error, type: ERROR_REQUEST });
-export const resetRequest = () => ({ type: RESET_REQUEST });
 
 // THUNKS
 export const loadProductsRequest = () => {
     return async dispatch => {
-     dispatch(startRequest());
+     dispatch(startRequest(requestName));
 
       try {
         let res = await axios.get(`${API_URL}/products`);
-        dispatch(endRequest());
+        dispatch(endRequest(requestName));
         dispatch(loadProducts(res.data));  
       } catch(e) {
-        dispatch(errorRequest(e.message));
+        dispatch(errorRequest(e, requestName));
       }
     };
   };
 
 export const loadSingleProductRequest = (id) => {
   return async dispatch => {
-    dispatch(startRequest());
+    dispatch(startRequest(requestName));
   
     try {
       let res = await axios.get(`${API_URL}/products/${id}`);
       await dispatch(loadSingleProduct(res.data));  
-      dispatch(endRequest());
+      dispatch(endRequest(requestName));
     } catch(e) {
-      dispatch(errorRequest(e.message));
+      dispatch(errorRequest(e.message, requestName));
     }
   };
 };
@@ -55,7 +48,7 @@ export const loadSingleProductRequest = (id) => {
 export const loadProductsByPageRequest = (page, PerPage) => {
   return async dispatch => {
 
-    dispatch(startRequest());
+    dispatch(startRequest(requestName));
     try {
 
       const productsPerPage = PerPage;
@@ -73,10 +66,10 @@ export const loadProductsByPageRequest = (page, PerPage) => {
       };
 
       dispatch(loadProductsByPage(payload));
-      dispatch(endRequest());
+      dispatch(endRequest(requestName));
 
     } catch(e) {
-      dispatch(errorRequest(e.message));
+      dispatch(errorRequest(e.message, requestName));
     }
 
   };
@@ -85,11 +78,6 @@ export const loadProductsByPageRequest = (page, PerPage) => {
 //INITIAL STATE
 const initialState = {
     data: [],
-    request: {
-      pending: false,
-      error: null,
-      success: null
-    },
     singleProduct: {},
     amount: 0,
     productsPerPage: 10,
@@ -111,14 +99,6 @@ export default function ordersReducer(state = initialState, action = {}) {
           amount: action.payload.amount,
           data: [...action.payload.products],
         };
-      case START_REQUEST:
-        return { ...state, request: { pending: true, error: null, success: null } };
-      case END_REQUEST:
-        return { ...state, request: { pending: false, error: null, success: true } };
-      case ERROR_REQUEST:
-        return { ...state, request: { pending: false, error: action.error, success: false } };
-      case RESET_REQUEST:
-        return { ...state, request: { pending: false, error: null, success: null } };
       default:
         return state;
     }

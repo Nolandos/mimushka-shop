@@ -4,7 +4,7 @@ import './BasketIcon.scss';
 import { FaShoppingCart } from "react-icons/fa";
 
 const BasketIcon = () => { 
-    const amount = useSelector(({ shopBasket }) => shopBasket.totalAmount);
+    const amount = useSelector(({shopBasket}) => Object.values(shopBasket.products).reduce((t, { amount }) => t + amount, 0));
     return (
         <div className="basket-icon">
             <FaShoppingCart />
