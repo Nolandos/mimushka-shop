@@ -5,13 +5,11 @@ import { checkDiscountCodeRequest } from '../../../redux/shopBasketReducer';
 
 const Discount = () => {
     const dispatch = useDispatch();
-    const inputEl = useRef(null);
+    const codeInput = useRef(null);
     const request = useSelector(({ requests }) => requests.cart_request);
 
-    const checkCode = (e) => {
-        if(inputEl.current.value.length === 4 ) {
-           dispatch(checkDiscountCodeRequest(inputEl.current.value));
-        }
+    const checkCode = () => {
+           dispatch(checkDiscountCodeRequest((codeInput.current.value).toUpperCase()));   
     }
 
     return (
@@ -19,10 +17,10 @@ const Discount = () => {
             <input 
                 className="discount__input" 
                 onChange={ checkCode } 
-                ref={ inputEl } 
+                ref={ codeInput } 
                 placeholder="Kod rabatowy">
             </input>
-            <p className="discount__error">{ request.error }</p>
+            { request.error !== null && <p className="discount__error">{ request.error }</p> }
         </div>
     );
 }

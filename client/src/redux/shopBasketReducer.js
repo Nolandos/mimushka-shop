@@ -5,7 +5,7 @@ import { startRequest, endRequest, errorRequest } from './requestsStatusReducer'
 //INITIAL STATE
 const initialState = {
     products: [],
-    discount: 1
+    priceProcent: 1
 }
 
 // ACTION NAME CREATOR
@@ -29,18 +29,25 @@ export const setDiscount = (payload) => ({ payload, type: SET_DISCOUNT });
 
 //THUNKS
 export const checkDiscountCodeRequest = (name) => {
-    return async dispatch => {
-        dispatch(startRequest(requestName));  
+    return async dispatch => { 
       try {
-        let res = await axios.get(`${API_URL}/codes/${name}`);
-        if(res.data) {
-            await dispatch(setDiscount(res.data.discount));
+        if (name === '') {
+            dispatch(setDiscount(0));
             dispatch(endRequest(requestName));
-        }
-        else dispatch(errorRequest('Błędny kod rabatowy', requestName));
-        
+        } else { 
+            let res = await axios.get(`${API_URL}/codes/${name}`);
+            if(res.data) {
+                await dispatch(setDiscount(res.data.discount));
+                dispatch(endRequest(requestName));
+            }
+            else {
+                await dispatch(setDiscount(0));
+                dispatch(errorRequest('Błędny kod rabatowy', requestName));
+            } 
+        }   
       } catch(e) {
-        dispatch(errorRequest(e.response.data, requestName));
+        await dispatch(setDiscount(0));
+        dispatch(errorRequest('Błędny kod rabatowy', requestName));
       }
     };
   };
@@ -64,7 +71,7 @@ export default function shopBasketReducer(state=initialState, action = {}) {
                 return state;   
             }
         case SET_DISCOUNT: 
-            return { ...state, discount: 1 - action.payload }
+            return { ...state, priceProcent: 1 - action.payload }
         default:
             return state;
     }
