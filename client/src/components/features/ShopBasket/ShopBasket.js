@@ -9,7 +9,7 @@ import './ShopBasket.scss';
 const ShopBasket = () => {
     const dispatch = useDispatch();
     const products = useSelector(({ shopBasket }) => shopBasket.products);
-    const priceProcent = useSelector(({shopBasket}) => shopBasket.priceProcent);
+    const discount = useSelector(({shopBasket}) => shopBasket.discountCode.discount) || 0;
     const totalPrice = useSelector(({shopBasket}) => shopBasket.products.reduce((t, { price, amount }) => t + amount * parseInt(price), 0));
 
     const addUnitProduct = (id) => {
@@ -36,7 +36,7 @@ const ShopBasket = () => {
                 />))}
             <div className="shop-basket__summary">
                 <Discount />
-                <p className="shop-basket__total-price">{ totalPrice * priceProcent } zł</p>
+                <p className="shop-basket__total-price">{ totalPrice * (1 - discount) } zł</p>
                 <Button variant="primary">Zapłać</Button>
             </div>
         </div>

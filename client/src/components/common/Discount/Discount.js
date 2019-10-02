@@ -7,6 +7,7 @@ const Discount = () => {
     const dispatch = useDispatch();
     const codeInput = useRef(null);
     const request = useSelector(({ requests }) => requests.cart_request);
+    const discountName = useSelector(({shopBasket}) => shopBasket.discountCode.name) || '';
 
     const checkCode = () => {
            dispatch(checkDiscountCodeRequest((codeInput.current.value).toUpperCase()));   
@@ -16,6 +17,7 @@ const Discount = () => {
         <div className="discount">
             <input 
                 className="discount__input" 
+                defaultValue= { discountName }
                 onChange={ checkCode } 
                 ref={ codeInput } 
                 placeholder="Kod rabatowy">

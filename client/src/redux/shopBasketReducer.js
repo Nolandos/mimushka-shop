@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { API_URL } from '../config';
-import { startRequest, endRequest, errorRequest } from './requestsStatusReducer';
+import { resetRequest, endRequest, errorRequest } from './requestsStatusReducer';
 
 //INITIAL STATE
 const initialState = {
     products: [],
-    priceProcent: 1
+    discountCode: 0
 }
 
 // ACTION NAME CREATOR
@@ -33,11 +33,11 @@ export const checkDiscountCodeRequest = (name) => {
       try {
         if (name === '') {
             dispatch(setDiscount(0));
-            dispatch(endRequest(requestName));
+            dispatch(resetRequest(requestName));
         } else { 
             let res = await axios.get(`${API_URL}/codes/${name}`);
             if(res.data) {
-                await dispatch(setDiscount(res.data.discount));
+                await dispatch(setDiscount(res.data));
                 dispatch(endRequest(requestName));
             }
             else {
@@ -71,7 +71,7 @@ export default function shopBasketReducer(state=initialState, action = {}) {
                 return state;   
             }
         case SET_DISCOUNT: 
-            return { ...state, priceProcent: 1 - action.payload }
+            return { ...state, discountCode: action.payload }
         default:
             return state;
     }
