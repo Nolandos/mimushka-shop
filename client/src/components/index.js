@@ -21,6 +21,8 @@ import ShopBasketProduct from './features/ShopBasketProduct/ShopBasketProduct';
 import BasketIcon from './common/BasketIcon/BasketIcon';
 import SingleProduct from './features/SingleProduct/SingleProduct';
 import Discount from './common/Discount/Discount';
+import Draggable from './common/Draggable/Draggable';
+import Droppable from './common/Droppable/Droppable';
 
 export {
 	Logo,
@@ -45,5 +47,7 @@ export {
     ShopBasketProduct,
     BasketIcon,
     SingleProduct,
-    Discount
+    Discount,
+    Draggable,
+    Droppable
 }

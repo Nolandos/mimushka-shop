@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Products.scss';
-import { PreviewProduct, Pagination } from '../../index';
+import { PreviewProduct, Pagination, Draggable } from '../../index';
 import { loadProductsByPageRequest } from '../../../redux/productsReducer';
 
 const Products = props => {
@@ -24,7 +24,11 @@ const Products = props => {
 
   return (
     <div className="products">
-      {products.map(item=><PreviewProduct {...item} key={item.id} />)}
+      {products.map(item => 
+        <Draggable key={item.id} data={item} image={item.image}>
+          <PreviewProduct {...item} key={item.id} />
+        </Draggable>
+        )}
       <Pagination pages={pages} initialPage={initialPage} onPageChange={(page) => loadProductsPage(page) } />
     </div>
   ) 

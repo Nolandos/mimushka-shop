@@ -7,7 +7,7 @@ const PreviewProduct = props => {
   
   return ( 
   <Link to={`/product/${id}`}>
-    <div className="preview-product">
+    <div draggable="true" className="preview-product">
       <p className="preview-product__additional-info">{ additionalInfo }</p>
       <div className="preview-product__photo-box">
         <img className="preview-product__photo" alt="product-photo" src={ image }></img>
