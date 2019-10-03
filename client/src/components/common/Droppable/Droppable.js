@@ -7,7 +7,7 @@ const Droppable = (props) => {
 	}
 
 	function onDrop(e){
-        let data = e.dataTransfer.getData('application/x-edukursy-kurs');
+        let data = e.dataTransfer.getData('application/mimushka-shop');
 		props.onDrop(JSON.parse(data), e);
 	}
 
