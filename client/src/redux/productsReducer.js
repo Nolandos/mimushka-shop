@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { API_URL } from '../config';
 import { startRequest, endRequest, errorRequest, resetRequest } from './requestsStatusReducer';
+import sortProducts from '../utils/sortProducts';
+
 // ACTION NAME CREATOR
 const reducerName = 'products';
 const requestName = 'products_request';
@@ -17,14 +19,16 @@ export const loadSingleProduct = payload => ({payload, type: LOAD_SINGLE_PRODUCT
 export const loadProductsByPage = payload => ({ payload, type: LOAD_PRODUCTS_PAGE });
 
 // THUNKS
-export const loadProductsRequest = () => {
+export const loadProductsRequest = (filter) => {
     return async dispatch => {
      dispatch(startRequest(requestName));
 
       try {
         let res = await axios.get(`${API_URL}/products`);
-        dispatch(endRequest(requestName));
-        dispatch(loadProducts(res.data));  
+        console.log(filter);
+        if(filter) await sortProducts(filter, res.data);
+        dispatch(loadProducts(res.data)); 
+        dispatch(endRequest(requestName)); 
       } catch(e) {
         dispatch(errorRequest(e, requestName));
       }
@@ -45,42 +49,12 @@ export const loadSingleProductRequest = (id) => {
   };
 };
 
-export const loadProductsByPageRequest = (page, PerPage) => {
-  return async dispatch => {
-
-    dispatch(startRequest(requestName));
-    try {
-
-      const productsPerPage = PerPage;
-
-      const startAt = (page - 1) * productsPerPage;
-      const limit = productsPerPage;
-
-      let res = await axios.get(`${API_URL}/products/range/${startAt}/${limit}`);
-
-      const payload = {
-        products: res.data.products,
-        amount: res.data.amount,
-        productsPerPage,
-        presentPage: page,
-      };
-
-      dispatch(loadProductsByPage(payload));
-      dispatch(endRequest(requestName));
-
-    } catch(e) {
-      dispatch(errorRequest(e.message, requestName));
-    }
-
-  };
-};
-
 //INITIAL STATE
 const initialState = {
     data: [],
     singleProduct: {},
-    amount: 0,
-    productsPerPage: 10,
+    amount: 10,
+    productsPerPage: 6,
     presentPage: 1
   };
 

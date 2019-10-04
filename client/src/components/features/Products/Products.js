@@ -2,29 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Products.scss';
 import { PreviewProduct, Pagination, Draggable } from '../../index';
-import { loadProductsByPageRequest } from '../../../redux/productsReducer';
+import { loadProductsRequest } from '../../../redux/productsReducer';
 
 const Products = props => {
   const dispatch = useDispatch();
   const products = useSelector(({ products }) => products.data);
+  const request = useSelector(({requests}) => requests.products_request);
+  const filters = useSelector(({ filters }) => filters.SORT_FILTER);
   const pages = useSelector(({ products }) => Math.ceil(products.amount / products.productsPerPage));
-
+  
+  
   const [ initialPage ] = useState(props.initialPage || 1);
+  const [ startAt, setStartAt ] = useState(0);
   const [ productsPerPage ] = useState(props.productsPerPage || 6);
+  const [ endAt, setEndAt ] = useState(6);
   const [ pagination, setPagination ] = useState(props.pagination);
 
   useEffect(() => {
-    dispatch(loadProductsByPageRequest(initialPage, productsPerPage));
-    if( props.pagination === undefined) setPagination(true); 
+    dispatch(loadProductsRequest(filters));
+    if(pagination === undefined) setPagination(true); 
   },[]);
 
   const loadProductsPage = page => {
-    dispatch(loadProductsByPageRequest(page, productsPerPage));  
+    setStartAt((page - 1) * productsPerPage);
+    setEndAt(page * 6);
   }
 
   return (
     <div className="products">
-      {products.map(item => 
+      {request.success === true && products.slice(startAt, endAt).map(item => 
         <Draggable key={item.id} data={item} image={item.image}>
           <PreviewProduct {...item} key={item.id} />
         </Draggable>

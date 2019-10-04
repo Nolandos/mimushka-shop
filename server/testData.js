@@ -72,7 +72,7 @@ const loadTestData = async () => {
     },{
         id: uuid(),
         name: "Produkt 9",
-        price: "130zł",
+        price: 130,
         amount: 1,
         additionalInfo: "Promocja",
         image: "http://localhost:3000/images/books.png",
