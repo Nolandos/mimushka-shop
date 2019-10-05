@@ -1,0 +1,24 @@
+@import '../../../styles/settings.scss';
+
+.price-list {
+    width: 85%;
+    border-bottom: 1px solid $color-text-light;
+    margin-top: 10%;
+
+    .price-list__name {
+        color: $color-text;
+        
+    }
+
+    .price-list__options {
+        list-style-type: none;
+        padding-left: 0px;
+        cursor: pointer;
+
+        .price-list__option {
+            &:hover {
+                color: $color-text-candy;
+            }
+        }
+    }
+}

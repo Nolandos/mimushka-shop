@@ -2,6 +2,7 @@ import axios from 'axios';
 import { API_URL } from '../config';
 import { startRequest, endRequest, errorRequest, resetRequest } from './requestsStatusReducer';
 import setFilters from '../utils/setFilters';
+import priceFilters from '../utils/priceFilter';
 
 // ACTION NAME CREATOR
 const reducerName = 'products';
@@ -26,9 +27,10 @@ export const loadProductsRequest = (filter) => {
       try {
         await new Promise((resolve, reject) => setTimeout(resolve, 500));
         let res = await axios.get(`${API_URL}/products`);
-        console.log(filter);
-        if(filter) await setFilters(filter, res.data);
-        dispatch(loadProducts(res.data)); 
+        let products = await setFilters(filter, res.data);
+        products = await priceFilters(filter, res.data);
+        
+        dispatch(loadProducts(products)); 
         dispatch(endRequest(requestName)); 
       } catch(e) {
         dispatch(errorRequest(e, requestName));

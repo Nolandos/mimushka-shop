@@ -24,6 +24,7 @@ import Discount from './common/Discount/Discount';
 import Draggable from './common/Draggable/Draggable';
 import Droppable from './common/Droppable/Droppable';
 import Spinner from './common/Spinner/Spinner';
+import PriceList from './common/PriceList/PriceList';
 
 export {
 	Logo,
@@ -51,5 +52,6 @@ export {
     Discount,
     Draggable,
     Droppable,
-    Spinner
+    Spinner,
+    PriceList
 }

@@ -9,7 +9,7 @@ const SortList = () => {
     const sortBy = option => {
         dispatch(setSortFilter(option)); 
     }
-
+    
     return (
         <div className="sort-list">
             <p className="sort-list__name">Sortuj: </p>
