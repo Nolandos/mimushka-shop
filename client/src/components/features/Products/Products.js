@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Products.scss';
-import { PreviewProduct, Pagination, Draggable } from '../../index';
+import { PreviewProduct, Pagination, Draggable, Spinner } from '../../index';
 import { loadProductsRequest } from '../../../redux/productsReducer';
 
 const Products = props => {
   const dispatch = useDispatch();
   const products = useSelector(({ products }) => products.data);
   const request = useSelector(({requests}) => requests.products_request);
-  const filters = useSelector(({ filters }) => filters.SORT_FILTER);
+  const filters = useSelector(({ filters }) => filters);
   const pages = useSelector(({ products }) => Math.ceil(products.amount / products.productsPerPage));
   
   
@@ -21,7 +21,7 @@ const Products = props => {
   useEffect(() => {
     dispatch(loadProductsRequest(filters));
     if(pagination === undefined) setPagination(true); 
-  },[]);
+  },[filters]);
 
   const loadProductsPage = page => {
     setStartAt((page - 1) * productsPerPage);
@@ -30,7 +30,8 @@ const Products = props => {
 
   return (
     <div className="products">
-      {request.success === true && products.slice(startAt, endAt).map(item => 
+    {request.pending === true && <Spinner />}
+      {products.slice(startAt, endAt).map(item => 
         <Draggable key={item.id} data={item} image={item.image}>
           <PreviewProduct {...item} key={item.id} />
         </Draggable>

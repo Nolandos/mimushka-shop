@@ -2,14 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './SortList.scss';
 import { setSortFilter } from '../../../redux/filtersReducer';
-import { loadProductsRequest } from '../../../redux/productsReducer';
 
 const SortList = () => {
     const dispatch = useDispatch();
-    
+
     const sortBy = option => {
-        dispatch(setSortFilter(option));
-        dispatch(loadProductsRequest(option));
+        dispatch(setSortFilter(option)); 
     }
 
     return (

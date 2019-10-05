@@ -23,6 +23,7 @@ import SingleProduct from './features/SingleProduct/SingleProduct';
 import Discount from './common/Discount/Discount';
 import Draggable from './common/Draggable/Draggable';
 import Droppable from './common/Droppable/Droppable';
+import Spinner from './common/Spinner/Spinner';
 
 export {
 	Logo,
@@ -49,5 +50,6 @@ export {
     SingleProduct,
     Discount,
     Draggable,
-    Droppable
+    Droppable,
+    Spinner
 }
