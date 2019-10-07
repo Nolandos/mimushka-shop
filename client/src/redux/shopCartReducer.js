@@ -52,7 +52,7 @@ export const checkDiscountCodeRequest = (name) => {
     };
   };
  
-export default function shopBasketReducer(state=initialState, action = {}) {
+export default function shopCartReducer(state=initialState, action = {}) {
     switch(action.type) {
         case ADD_UNIT:
             state.products.map(product => { if(product.id === action.payload ) product.amount++});

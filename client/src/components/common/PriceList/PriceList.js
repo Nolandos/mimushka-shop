@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './PriceList.scss';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -8,13 +8,14 @@ import { setPriceFilter } from '../../../redux/filtersReducer';
 
 const PriceList = () => {
     const dispatch = useDispatch();
+    const priceFilter = useSelector(({ filters }) => filters.PRICE_FILTER);
 
     const [state, setState] = useState({
-        under25: false,
-        '25-50': false,
-        '50-100': false,
-        '100-150': false,
-        above150: false,
+        under25: priceFilter === 'Price: under25' ? true : false,
+        '25-50': priceFilter === 'Price: 25-50' ? true : false,
+        '50-100': priceFilter === 'Price: 50-100' ? true : false,
+        '100-150': priceFilter === 'Price: 100-150' ? true : false,
+        above150: priceFilter === 'Price: above150' ? true : false,
       });
 
       const handleChange = name => event => {

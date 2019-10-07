@@ -8,7 +8,7 @@ import Sidebar from './features/Sidebar/Sidebar';
 import MainLayout from './layouts/MainLayout/MainLayout';
 import MainMenu from './layouts/MainMenu/MainMenu';
 import PageContainer from './layouts/PageContainer/PageContainer';
-import BasketPage from './pages/Basket/Basket';
+import CartPage from './pages/Cart/Cart';
 import Contact from './pages/Contact/Contact';
 import FAQ from './pages/FAQ/FAQ';
 import Home from './pages/Home/Home';
@@ -16,9 +16,9 @@ import Regulations from './pages/Regulations/Regulations';
 import SortList from './common/SortList/SortList';
 import SingleProductPage from './pages/SingleProduct/SingleProduct';
 import Button from './common/Button/Button';
-import ShopBasket from './features/ShopBasket/ShopBasket';
-import ShopBasketProduct from './features/ShopBasketProduct/ShopBasketProduct';
-import BasketIcon from './common/BasketIcon/BasketIcon';
+import ShopCart from './features/ShopCart/ShopCart';
+import ShopCartProduct from './features/ShopCartProduct/ShopCartProduct';
+import CartIcon from './common/CartIcon/CartIcon';
 import SingleProduct from './features/SingleProduct/SingleProduct';
 import Discount from './common/Discount/Discount';
 import Draggable from './common/Draggable/Draggable';
@@ -37,7 +37,7 @@ export {
     MainLayout,
     MainMenu,
     PageContainer,
-    BasketPage,
+    CartPage,
     Contact,
     FAQ,
     Home,
@@ -45,9 +45,9 @@ export {
     SortList,
     SingleProductPage,
     Button,
-    ShopBasket,
-    ShopBasketProduct,
-    BasketIcon,
+    ShopCart,
+    ShopCartProduct,
+    CartIcon,
     SingleProduct,
     Discount,
     Draggable,

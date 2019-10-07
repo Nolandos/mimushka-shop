@@ -1,5 +1,5 @@
 const priceFilter = (option, products) => {
-    console.log(products);
+
     switch (option.PRICE_FILTER) {
         case 'Price: under25':
             return products.filter(product => product.price <= 25);

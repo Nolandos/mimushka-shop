@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './NavBar.scss';
-import { MainMenu, Logo, BasketIcon, Droppable } from '../../index';
-import { addProduct } from '../../../redux/shopBasketReducer';
+import { MainMenu, Logo, CartIcon, Droppable } from '../../index';
+import { addProduct } from '../../../redux/shopCartReducer';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -12,9 +12,9 @@ const NavBar = () => {
     { path: '/contact', title: 'Kontakt' , className: 'contact' },
     { path: '/regulations', title: 'Regulamin', className: 'regulations' },
     { 
-      path: '/basket', 
-      title: <Droppable onDrop={(product)=>dispatch(addProduct(product.id, product))}><BasketIcon /></Droppable>, 
-      className: 'basket' 
+      path: '/cart', 
+      title: <Droppable onDrop={(product)=>dispatch(addProduct(product.id, product))}><CartIcon /></Droppable>, 
+      className: 'cart' 
     }
   ]);
 

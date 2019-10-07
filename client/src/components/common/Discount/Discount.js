@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Discount.scss';
-import { checkDiscountCodeRequest } from '../../../redux/shopBasketReducer';
+import { checkDiscountCodeRequest } from '../../../redux/shopCartReducer';
 
 const Discount = () => {
     const dispatch = useDispatch();
     const codeInput = useRef(null);
     const request = useSelector(({ requests }) => requests.cart_request);
-    const discountName = useSelector(({shopBasket}) => shopBasket.discountCode.name) || '';
+    const discountName = useSelector(({shopCart}) => shopCart.discountCode.name) || '';
 
     const checkCode = () => {
            dispatch(checkDiscountCodeRequest((codeInput.current.value).toUpperCase()));   

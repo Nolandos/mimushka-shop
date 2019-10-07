@@ -1,4 +1,5 @@
 const sortByFilter = (option, products) => {
+    
     switch (option.SORT_FILTER) {
         case 'A-Z':
             return products.sort((a,b) => (a.name > b.name)? 1 : ((b.name > a.name) ? -1: 0));

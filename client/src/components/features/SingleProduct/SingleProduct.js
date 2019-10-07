@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadSingleProductRequest } from '../../../redux/productsReducer';
-import { addProduct } from '../../../redux/shopBasketReducer';
+import { addProduct } from '../../../redux/shopCartReducer';
 import './SingleProduct.scss';
 
 import { Button } from '../../index';

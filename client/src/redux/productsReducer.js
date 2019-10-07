@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_URL } from '../config';
 import { startRequest, endRequest, errorRequest, resetRequest } from './requestsStatusReducer';
-import setFilters from '../utils/setFilters';
+import sortByFilters from '../utils/sortByFilter';
 import priceFilters from '../utils/priceFilter';
 
 // ACTION NAME CREATOR
@@ -15,7 +15,7 @@ export const LOAD_SINGLE_PRODUCT = createActionName('LOAD_SINGLE_PRODUCT');
 export const LOAD_PRODUCTS_PAGE = createActionName('LOAD_PRODUCTS_PAGE');
 
 // ACTIONS 
-export const loadProducts = payload => ({ payload, type: LOAD_PRODUCTS });
+export const loadProducts = (products, amount ) => ({ products, amount, type: LOAD_PRODUCTS });
 export const loadSingleProduct = payload => ({payload, type: LOAD_SINGLE_PRODUCT });
 export const loadProductsByPage = payload => ({ payload, type: LOAD_PRODUCTS_PAGE });
 
@@ -27,10 +27,14 @@ export const loadProductsRequest = (filter) => {
       try {
         await new Promise((resolve, reject) => setTimeout(resolve, 500));
         let res = await axios.get(`${API_URL}/products`);
-        let products = await setFilters(filter, res.data);
-        products = await priceFilters(filter, res.data);
+        let products = res.data;
+
+        if(filter.SORT_FILTER !== 'none') products = await sortByFilters(filter, res.data);
+        if(filter.PRICE_FILTER !== 'none') products = await priceFilters(filter, res.data);
         
-        dispatch(loadProducts(products)); 
+        let amount = products.length;
+
+        dispatch(loadProducts(products, amount)); 
         dispatch(endRequest(requestName)); 
       } catch(e) {
         dispatch(errorRequest(e, requestName));
@@ -65,17 +69,13 @@ const initialState = {
 export default function ordersReducer(state = initialState, action = {}) {
     switch (action.type) {
       case LOAD_PRODUCTS:
-        return  { ...state, data: action.payload };
+        return  { 
+          ...state, 
+          data: action.products,
+          amount: action.amount
+        };
       case LOAD_SINGLE_PRODUCT:
         return { ...state, singleProduct: action.payload };
-      case LOAD_PRODUCTS_PAGE:
-        return {
-          ...state,
-          productsPerPage: action.payload.productsPerPage,
-          presentPage: action.payload.presentPage,
-          amount: action.payload.amount,
-          data: [...action.payload.products],
-        };
       default:
         return state;
     }
