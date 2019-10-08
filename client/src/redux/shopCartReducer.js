@@ -55,11 +55,17 @@ export const checkDiscountCodeRequest = (name) => {
 export default function shopCartReducer(state=initialState, action = {}) {
     switch(action.type) {
         case ADD_UNIT:
-            state.products.map(product => { if(product.id === action.payload ) product.amount++});
-            return state;
+            const productAfterAddedAmount = state.products.map(product => { 
+                if(product.id === action.payload ) return {...product, amount: product.amount + 1};
+                else return product;
+            });
+            return {...state, products: productAfterAddedAmount};
         case REMOVE_UNIT:
-            state.products.map(product => {if(product.id === action.payload ) product.amount--})
-            return state;
+            const productAfterRemoveAmount = state.products.map(product => { 
+                if(product.id === action.payload ) return {...product, amount: product.amount - 1};
+                else return product;
+            });
+        return {...state, products: productAfterRemoveAmount};
         case REMOVE_PRODUCT:
             const productsNodDeleted = state.products.filter(product => product.id !== action.payload );
             return { ...state, products: productsNodDeleted };
