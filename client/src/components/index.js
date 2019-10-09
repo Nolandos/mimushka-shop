@@ -28,7 +28,7 @@ import PriceList from './common/PriceList/PriceList';
 import LoginPage from './pages/Login/Login';
 import Login from './features/Login/Login';
 import ClientLayout from './layouts/ClientLayout/ClientLayout';
-import AdminLayout from './layouts/AdminLayout';
+import AdminLayout from './layouts/AdminLayout/AdminLayout';
 
 export {
 	Logo,

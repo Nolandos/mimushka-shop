@@ -24,6 +24,11 @@ app.use(mongoSanitize());
 app.use('/api', productsRoute);
 app.use('/api', codesRoute);
 
+//ROUTES
+app.get('/', (req, res) => {
+    res.send('Web blog api');
+});
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '/../client/build')));
 
@@ -40,11 +45,6 @@ db.once('open', () => {
     loadTestData();
 });
 db.on('error', (err) => console.log('Error ' + err));
-
-//ROUTES
-app.get('/', (req, res) => {
-    res.send('Web blog api');
-});
 
 
 //Listening on PORT

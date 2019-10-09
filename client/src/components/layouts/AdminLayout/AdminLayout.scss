@@ -1,0 +1,10 @@
+@import '../../../styles/settings.scss';
+
+.admin-layout {
+    background-image: url('./admin-panel-background.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $color-text-candy-light;
+    height: 100vh;
+}
