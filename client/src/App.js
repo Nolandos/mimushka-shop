@@ -1,27 +1,16 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { 
-  MainLayout,
-  CartPage,
-  Contact,
-  FAQ,
-  Home,
-  Regulations,
-  SingleProductPage
+  ClientLayout,
+  AdminLayout
 } from './components';
 
 function App() {
   return (
-    <MainLayout>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/product/:id" exact component={ SingleProductPage } />
-        <Route path="/cart" exact component={CartPage} />
-        <Route path="/contact" exact component={Contact} />
-        <Route path="/faq" exact component={FAQ} />
-        <Route path="/regulations" exact component={Regulations} />
+        <Route path="/admin" component={AdminLayout} />
+        <Route path="/" component={ClientLayout} />
       </Switch>
-    </MainLayout>
   );
 }
 
