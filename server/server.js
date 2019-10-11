@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 // Serve static files from the React app
-app.use(express.static('assets'));
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, '/../client/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/../client/build/index.html'));

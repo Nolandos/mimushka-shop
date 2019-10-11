@@ -4,6 +4,7 @@ import './Login.scss';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const Login = () => {
     const [state, setState] = useState({
@@ -26,6 +27,8 @@ const Login = () => {
     
     return(
         <div className="login-panel">
+            <AccountCircleIcon />
+            <h1>Admin panel</h1>
             <form className="login-panel__form" onSubmit={checkLogin}>
                 <TextField
                     id="login"

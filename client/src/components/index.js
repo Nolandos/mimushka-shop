@@ -29,6 +29,8 @@ import LoginPage from './pages/Login/Login';
 import Login from './features/Login/Login';
 import ClientLayout from './layouts/ClientLayout/ClientLayout';
 import AdminLayout from './layouts/AdminLayout/AdminLayout';
+import DashboardPage from './pages/Dashboard/Dashboard';
+import PrivateRoute from './common/PrivateRoute/PrivateRoute';
 
 export {
 	Logo,
@@ -61,5 +63,7 @@ export {
     LoginPage,
     Login,
     ClientLayout,
-    AdminLayout
+    AdminLayout,
+    DashboardPage,
+    PrivateRoute
 }
