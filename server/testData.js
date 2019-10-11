@@ -11,7 +11,7 @@ const loadTestData = async () => {
         price: 50,
         amount: 1,
         additionalInfo: "Ostatnia sztuka",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
         id: uuid(),
@@ -19,7 +19,7 @@ const loadTestData = async () => {
         price: 100,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
         id: uuid(),
@@ -27,7 +27,7 @@ const loadTestData = async () => {
         price: 115,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
         id: uuid(),
@@ -35,7 +35,7 @@ const loadTestData = async () => {
         price: 119,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
         id: uuid(),
@@ -43,7 +43,7 @@ const loadTestData = async () => {
         price: 140,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
         id: uuid(),
@@ -51,7 +51,7 @@ const loadTestData = async () => {
         price: 130,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
         id: uuid(),
@@ -59,7 +59,7 @@ const loadTestData = async () => {
         price: 50,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
         id: uuid(),
@@ -67,7 +67,7 @@ const loadTestData = async () => {
         price: 110,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },{
         id: uuid(),
@@ -75,7 +75,7 @@ const loadTestData = async () => {
         price: 130,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     },
     ,{
@@ -84,7 +84,7 @@ const loadTestData = async () => {
         price: 170,
         amount: 1,
         additionalInfo: "Promocja",
-        image: "http://localhost:3000/images/books.png",
+        image: "item.png",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam."
     }
   ];

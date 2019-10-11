@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadSingleProductRequest } from '../../../redux/productsReducer';
 import { addProduct } from '../../../redux/shopCartReducer';
 import './SingleProduct.scss';
+import { PRODUCTS_IMAGE_URL } from '../../../config';
 
 import { Button } from '../../index';
 
@@ -22,7 +23,7 @@ const SingleProduct = ({ match }) => {
     return (
         <div className="single-product">
             <div className="single-product__photo-box">
-                <img src={ image } alt="product-photo"></img>
+                <img src={ `${PRODUCTS_IMAGE_URL}${image}` } alt="product-photo"></img>
             </div>
             <div className="single-product__content">
                 <div className="single-product__name">{ name }</div>

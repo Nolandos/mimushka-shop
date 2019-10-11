@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ShopCartProduct.scss';
+import { PRODUCTS_IMAGE_URL } from '../../../config';
 
 const ShopCartProduct = ({ id, image, name, description, price, addUnit, removeUnit, amount, removeProduct }) => {
     const [units, setUnits ] = useState (amount || 1);
@@ -19,7 +20,7 @@ const ShopCartProduct = ({ id, image, name, description, price, addUnit, removeU
     return (
         <div className="shop-cart-product">
             <div className="shop-cart-product__photo-box">
-                <img src={ image } alt="product-image"></img>
+                <img src={ `${PRODUCTS_IMAGE_URL}${image}` } alt="product-image"></img>
             </div>
             <div className="shop-cart-product__content">
                 <div className="shop-cart-product__name">{ name }</div>
