@@ -5,7 +5,7 @@ import { PRODUCTS_IMAGE_URL } from '../../../config';
 
 const PreviewProduct = props => { 
   const { id, additionalInfo, image, name, price } = props;
-  
+
   return ( 
   <Link to={`/product/${id}`}>
     <div draggable="true" className="preview-product">
@@ -21,3 +21,5 @@ const PreviewProduct = props => {
 };
 
 export default PreviewProduct;
+
+//<img className="preview-product__photo" alt="product-photo" src={ `${port}${image}` }></img>
