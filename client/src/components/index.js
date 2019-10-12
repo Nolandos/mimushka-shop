@@ -31,6 +31,7 @@ import ClientLayout from './layouts/ClientLayout/ClientLayout';
 import AdminLayout from './layouts/AdminLayout/AdminLayout';
 import DashboardPage from './pages/Dashboard/Dashboard';
 import PrivateRoute from './common/PrivateRoute/PrivateRoute';
+import Alert from './common/Alert/Alert';
 
 export {
 	Logo,
@@ -65,5 +66,6 @@ export {
     ClientLayout,
     AdminLayout,
     DashboardPage,
-    PrivateRoute
+    PrivateRoute,
+    Alert
 }

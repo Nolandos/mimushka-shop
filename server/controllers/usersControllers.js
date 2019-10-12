@@ -15,7 +15,7 @@ exports.checkLogin = async (req, res) => {
     const password = req.body.password;
     
     const user = await User.findOne({ login });
-    if (!user) res.status(404).json({ emailnotfound: "Email not found" });
+    if (!user) res.status(404).json("Błędny Login");
 
     let hash = await bcrypt.hashSync(user.password, 10);
     
@@ -42,12 +42,12 @@ exports.checkLogin = async (req, res) => {
     } else {
         return res
           .status(400)
-          .json({ passwordincorrect: "Password incorrect" });
+          .json("Złe hasło!" );
     };
 
     } catch(e) {
         res
         .status(400)
-        .json({ passwordincorrect: "Password incorrect" });
+        .json("Złe hasło!");
     }
 };

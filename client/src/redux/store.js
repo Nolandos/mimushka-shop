@@ -6,13 +6,15 @@ import products from './productsReducer';
 import shopCart from './shopCartReducer';
 import requests from './requestsStatusReducer';
 import filters from './filtersReducer';
+import users from './usersReducer';
 
 // combine reducers
 const allReducers = combineReducers({
     products,
     shopCart,
     requests,
-    filters
+    filters,
+    users
 });
 
 //CREATE STRORE

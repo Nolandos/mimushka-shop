@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import './Login.scss';
 import TextField from '@material-ui/core/TextField';
@@ -6,11 +7,17 @@ import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
+import { checkUser } from '../../../redux/usersReducer';
+import { Spinner, Alert } from '../../index';
+
 const Login = () => {
+    const dispatch = useDispatch();
+    const isLogged = useSelector(({ users }) => users.isLogged);
+    const request = useSelector(({ requests }) => requests.users_request);
+
     const [state, setState] = useState({
         login: '',
         password: '',
-        flag: false,
       });
 
     const handleChange = name => event => {
@@ -19,16 +26,18 @@ const Login = () => {
 
     const checkLogin = (e) => {
         e.preventDefault();
-        setState({ ...state, flag: true });
-        const { login, password } = state;  
+        dispatch(checkUser(state.login, state.password));
     }
 
-    if(state.flag === true) return <Redirect to="/admin/dashboard" />
+    if(isLogged === true) return <Redirect to="/admin/dashboard" />
     
-    return(
+    return (
         <div className="login-panel">
             <AccountCircleIcon />
             <h1>Admin panel</h1>
+            { request.pending === true && <Spinner /> } 
+            { request.error && <Alert variant='error'>{request.error}</Alert>}
+            { request.pending === false && 
             <form className="login-panel__form" onSubmit={checkLogin}>
                 <TextField
                     id="login"
@@ -53,6 +62,7 @@ const Login = () => {
                     Zaloguj się 
                 </Button>          
         </form>
+        }
     </div>
 )};
 

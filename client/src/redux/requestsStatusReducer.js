@@ -25,6 +25,11 @@ const initialState = {
       pending: false,
       error: null,
       success: null
+    },
+    users_request: {
+      pending: false,
+      error: null,
+      success: null
     }
   };
 
