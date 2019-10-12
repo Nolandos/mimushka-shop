@@ -1,5 +1,6 @@
 const Product = require('./models/productsModel');
 const Code = require('./models/codesModel');
+const User = require('./models/usersModel');
 const uuid = require('uuid');
 
 const loadTestData = async () => {
@@ -95,12 +96,21 @@ const loadTestData = async () => {
         discount: 0.1,
     }];
 
+    const users = [{
+        id: uuid(),
+        login: "test",
+        password: "test"
+    }]
+
   try {
-    let counter = await Product.countDocuments();
-    if(counter === 0) {
+    let counterProducts = await Product.countDocuments();
+    let counterDiscounts = await Code.countDocuments();
+    let counterUsers = await User.countDocuments();
+    if(counterProducts === 0 || counterDiscounts === 0 || counterUsers === 0) {
       console.log('No products. Loading data...');
       await Product.create(data);
       await Code.create(codes);
+      await User.create(users);
       console.log('Test data has been successfully loaded');
     }
   } catch (err) {

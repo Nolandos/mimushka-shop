@@ -7,6 +7,8 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const loadTestData = require('./testData');
 const path = require('path');
+const passport = require("passport");
+const users = require("./routes/users");
 
 //Import Routes
 const productsRoute  = require('./routes/products');
@@ -16,6 +18,7 @@ const codesRoute  = require('./routes/codes');
 const app = express();
 
 //Middlewares
+app.use(passport.initialize());
 app.use(helmet());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +26,10 @@ app.use(express.json());
 app.use(mongoSanitize());
 app.use('/api', productsRoute);
 app.use('/api', codesRoute);
+app.use("/api", users);
+
+// Passport config
+require("./helpers/passport")(passport);
 
 //ROUTES
 app.get('/', (req, res) => {
