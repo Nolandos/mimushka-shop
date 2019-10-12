@@ -1,12 +1,10 @@
 import React from 'react';
 //import './Sidebar.scss';
-import { SortList } from '../../index';
-import { PriceList } from '../../index';
 
-const Sidebar = () => (
+
+const Sidebar = ({ children }) => (
   <div className="sidebar">
-    <SortList />
-    <PriceList />
+    {children}
   </div>
 );
 

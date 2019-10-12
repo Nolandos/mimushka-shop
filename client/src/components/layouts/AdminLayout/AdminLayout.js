@@ -7,12 +7,10 @@ import { LoginPage, PageContainer, DashboardPage, PrivateRoute } from '../../ind
 const AdminLayout = () => {
     return (
         <div className="admin-layout">
-            <PageContainer>
-                <Switch>
-                    <Route path="*/login" exact component={LoginPage} />
-                    <PrivateRoute path="*/dashboard" exact component={DashboardPage} /> 
-                </Switch>
-            </PageContainer>
+            <Switch>
+                <Route path="*/login" exact component={LoginPage} />
+                <PrivateRoute path="*/dashboard" exact component={DashboardPage} />  
+            </Switch>
         </div>
     )
 }

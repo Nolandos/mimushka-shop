@@ -1,8 +1,14 @@
 import React from 'react';
+import './Dashboard.scss';
+import { PageContainer } from '../../index'
 
 const DashboardPage = () => {
     return (
-        <div>Dashboard Page</div>
+        <div className="dashboard">
+            <PageContainer>
+                
+            </PageContainer>
+        </div>
     )
 }
 
