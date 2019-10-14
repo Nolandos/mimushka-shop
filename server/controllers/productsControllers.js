@@ -42,3 +42,11 @@ exports.getSingleProduct = async (req, res) => {
   }
 
 };
+
+exports.deleteSingleProduct = async (req, res) => {
+  try {
+    res.status(200).json(await Product.findOneAndRemove({id: req.params.id}));
+  } catch (err) {
+    res.status(500).res.json(err);
+  }  
+}

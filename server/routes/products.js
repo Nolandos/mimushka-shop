@@ -13,5 +13,7 @@ router.get('/products', productControllers.getProducts );
 router.route('/products/range/:startAt/:limit').get(productControllers.getProductsByRange);
 //get single product
 router.get('/products/:id', productControllers.getSingleProduct);
+//delete single product
+router.delete('/products/:id', productControllers.deleteSingleProduct);
 
 module.exports = router;
