@@ -20,7 +20,7 @@ export const loadSingleProduct = payload => ({payload, type: LOAD_SINGLE_PRODUCT
 export const loadProductsByPage = payload => ({ payload, type: LOAD_PRODUCTS_PAGE });
 
 // THUNKS
-export const loadProductsRequest = (filter) => {
+export const loadProductsRequest = filter => {
     return async dispatch => {
      dispatch(startRequest(requestName));
 
@@ -42,13 +42,27 @@ export const loadProductsRequest = (filter) => {
     };
   };
 
-export const loadSingleProductRequest = (id) => {
+export const loadSingleProductRequest = id => {
   return async dispatch => {
     dispatch(startRequest(requestName));
   
     try {
       let res = await axios.get(`${API_URL}/products/${id}`);
       await dispatch(loadSingleProduct(res.data));  
+      dispatch(endRequest(requestName));
+    } catch(e) {
+      dispatch(errorRequest(e.message, requestName));
+    }
+  };
+};
+
+export const removeSingleProcutRequest = id => {
+  return async dispatch => {
+    dispatch(startRequest(requestName));
+  
+    try {
+      let res = await axios.delete(`${API_URL}/products/${id}`);
+      console.log(res.data);  
       dispatch(endRequest(requestName));
     } catch(e) {
       dispatch(errorRequest(e.message, requestName));

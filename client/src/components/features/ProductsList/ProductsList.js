@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import MaterialTable from 'material-table';
-import { ProductSummary } from '../../index';
 import tableIcons from './TableIcons';
 
+import { removeSingleProcutRequest } from '../../../redux/productsReducer';
+
 const ProductsList = () => {
+  const dispatch = useDispatch();
   const products = useSelector(({products}) => products.data);
-  console.log(tableIcons);
-  const test = (data) => {
-    console.log(data);
+
+  const removeProdtuct = (id) => {
+    dispatch(removeSingleProcutRequest(id));
   }
 
   useEffect(() => {
@@ -25,25 +27,37 @@ const ProductsList = () => {
         data: products
       });
       console.log(products)
-      console.log(state);
-    return (
-        <MaterialTable
-          icons={tableIcons}
-          title="Editable Example"
-          columns={state.columns}
-          data={state.data}
-          editable={{
+      console.log(<MaterialTable 
+      editable={{
         onRowDelete: oldData =>
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
               const data = [...state.data];
-              test(oldData.id);
+              removeProdtuct(oldData.id);
               data.splice(data.indexOf(oldData), 1);
               setState({ ...state, data });
             }, 600);
           }),
-      }}
+      }} />);
+    return (
+        <MaterialTable
+          icons={tableIcons}
+          title="Lista produktów"
+          columns={state.columns}
+          data={state.data}
+          editable={{
+            onRowDelete: oldData =>
+              new Promise(resolve => {
+                setTimeout(() => {
+                  resolve();
+                  const data = [...state.data];
+                  removeProdtuct(oldData.id);
+                  data.splice(data.indexOf(oldData), 1);
+                  setState({ ...state, data });
+                }, 600);
+              }),
+          }}
           actions={[
           {
             icon: tableIcons.Edit,
