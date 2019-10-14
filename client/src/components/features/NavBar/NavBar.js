@@ -1,12 +1,11 @@
 import React from 'react';
 import './NavBar.scss';
-import { MainMenu, Logo } from '../../index';
 
-const NavBar = ({links}) => {
+
+const NavBar = ({ children }) => {
   return (
     <nav className="navbar">
-      <Logo />
-      <MainMenu links={ links } />
+      { children }
     </nav>
   )
 }

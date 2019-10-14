@@ -33,7 +33,7 @@ require("./helpers/passport")(passport);
 
 //ROUTES
 app.get('/', (req, res) => {
-    res.send('Web blog api');
+    res.send('Mimushka shop api');
 });
 
 // Serve static files from the React app

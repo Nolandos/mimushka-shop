@@ -1,6 +1,45 @@
+@import '../../../styles/settings.scss';
+
 .dashboard {
-    .container-fluid {
-        background-color: #fff;
-        height: 100vh;
+    background-color: #fff;
+    height: 100vh;
+    max-width: 100vw;
+    position: relative;
+
+    .sidebar {
+        height: 90vh;
+        width: 20%;
+        position: absolute;
+        border-right: 1px solid $color-text-light;
+    }
+
+    .navbar {
+        border-bottom: 1px solid $color-text-light;
+        height: 10vh;
+        width: 100%;
+    }
+
+    .main-menu {
+        margin-top: 15%;
+
+        .menu-option {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+    
+            >svg {
+                margin-right: 10px;
+                font-size: 1.5em;
+            }
+        }
+    }
+    
+    &__content {
+        //border: 2px solid blue;
+        padding: 25px;
+        width: 80%;
+        position: relative;
+        left: 20%;
+        height: 90vh;
     }
 }

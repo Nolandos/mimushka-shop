@@ -9,7 +9,7 @@ const AdminLayout = () => {
         <div className="admin-layout">
             <Switch>
                 <Route path="*/login" exact component={LoginPage} />
-                <PrivateRoute path="*/dashboard" exact component={DashboardPage} />  
+                <PrivateRoute path="*/dashboard" component={DashboardPage} />  
             </Switch>
         </div>
     )

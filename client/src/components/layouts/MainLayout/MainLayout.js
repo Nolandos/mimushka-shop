@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { NavBar, Footer, PageContainer } from '../../index';
 import { CartIcon, Droppable } from '../../index';
 import { addProduct } from '../../../redux/shopCartReducer';
+import { MainMenu, Logo } from '../../index';
 
 const MainLayout = ({ children }) => {
     const dispatch = useDispatch();
@@ -20,7 +21,10 @@ const MainLayout = ({ children }) => {
 
     return (
         <PageContainer>
-            <NavBar links={links}/>
+            <NavBar>
+                <Logo />
+                <MainMenu links={ links } />
+            </NavBar>
             {children}
             <Footer/>   
         </PageContainer>

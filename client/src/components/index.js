@@ -32,6 +32,11 @@ import AdminLayout from './layouts/AdminLayout/AdminLayout';
 import DashboardPage from './pages/Dashboard/Dashboard';
 import PrivateRoute from './common/PrivateRoute/PrivateRoute';
 import Alert from './common/Alert/Alert';
+import OrdersPage from './pages/Orders/Orders'
+import NewProductPage from './pages/NewProduct/NewProduct';
+import ProductsListPage from './pages/ProductsList/ProductsList';
+import ProductsList from './features/ProductsList/ProductsList';
+import ProductSummary from './features/ProductSummary/ProductSummary';
 
 export {
 	Logo,
@@ -67,5 +72,10 @@ export {
     AdminLayout,
     DashboardPage,
     PrivateRoute,
-    Alert
+    Alert,
+    OrdersPage,
+    NewProductPage,
+    ProductsListPage,
+    ProductsList,
+    ProductSummary
 }

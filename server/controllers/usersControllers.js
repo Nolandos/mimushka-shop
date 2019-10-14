@@ -8,8 +8,8 @@ const validateLoginInput = require("../helpers/login");
 
 exports.checkLogin = async (req, res) => {
     try {
-    const { errors, isValid } = validateLoginInput(req.body);
-    if (!isValid) res.status(400).json(errors);
+    const { error, isValid } = validateLoginInput(req.body);
+    if (!isValid) res.status(400).json(error);
 
     const login = req.body.login;
     const password = req.body.password;
