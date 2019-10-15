@@ -70,6 +70,19 @@ export const removeSingleProcutRequest = id => {
   };
 };
 
+export const uploadProductImage = image => {
+  return async dispatch => {
+    
+  
+    try {
+      console.log('image', image);
+      let res = await axios.post(`${API_URL}/products/image/upload`, image);
+    } catch(e) {
+      console.log(e);
+    }
+  };
+};
+
 //INITIAL STATE
 const initialState = {
     data: [],

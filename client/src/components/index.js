@@ -37,6 +37,9 @@ import NewProductPage from './pages/NewProduct/NewProduct';
 import ProductsListPage from './pages/ProductsList/ProductsList';
 import ProductsList from './features/ProductsList/ProductsList';
 import ProductSummary from './features/ProductSummary/ProductSummary';
+import NewProduct from './features/NewProduct/NewProduct';
+import ProductForm from './common/ProductForm/ProductForm';
+import UploadInput from './common/UploadInput/UploadInput';
 
 export {
 	Logo,
@@ -77,5 +80,8 @@ export {
     NewProductPage,
     ProductsListPage,
     ProductsList,
-    ProductSummary
+    ProductSummary,
+    NewProduct,
+    ProductForm,
+    UploadInput
 }

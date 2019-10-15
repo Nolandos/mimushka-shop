@@ -22,12 +22,12 @@ const DashboardPage = () => {
             className: 'orders' 
         },
         { 
-            path: '/admin/dashboard/newProduct', 
+            path: '/admin/dashboard/new-product', 
             title: <div className="menu-option"><AddIcon/>Nowy Produkt</div>, 
             className: 'new-product' 
         },
         { 
-            path: '/admin/dashboard/productsList', 
+            path: '/admin/dashboard/products-list', 
             title: <div className="menu-option"><MenuBookIcon/>Lista Produktów</div>,  
             className: 'products-list' 
         }    
@@ -43,8 +43,8 @@ const DashboardPage = () => {
             <div className="dashboard__content">
                 <Switch>
                     <PrivateRoute path="*/orders" exact component={ OrdersPage }/>
-                    <PrivateRoute path="*/newProduct" exact component={ NewProductPage }/>
-                    <PrivateRoute path="*/productsList" exact component={ ProductsListPage }/>
+                    <PrivateRoute path="*/products-list" exact component={ ProductsListPage }/>
+                    <PrivateRoute path="*/new-product" exact component={ NewProductPage }/>
                 </Switch>
             </div>
         </div>
