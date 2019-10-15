@@ -19,10 +19,10 @@ const ProductsList = () => {
 
     const [state, setState] = React.useState({
         columns: [
-          { title: 'Name', field: 'name' },
-          { title: 'Price', field: 'price', type: 'numeric' },
-          { title: 'additionalInfo', field: 'additionalInfo' },
-          { title: 'description', field: 'description' },
+          { title: 'Nazwa', field: 'name' },
+          { title: 'Cena', field: 'price', type: 'numeric' },
+          { title: 'Informacja', field: 'additionalInfo' },
+          { title: 'Opis', field: 'description' },
         ],
         data: products
       });
@@ -65,6 +65,32 @@ const ProductsList = () => {
             onClick: (e, data) => test(data.id)
           }
         ]}
+        localization={{
+          header: {
+            actions: 'Operacje'
+          },
+          body: {
+            emptyDataSourceMessage: 'Brak produktów.',
+            deleteTooltip: 'Usuń',
+            editRow: {
+              deleteText: 'Czy na pewno chcesz usunąć ten produkt ?',
+              saveTooltip: 'Usuń',
+              cancelTooltip: 'Anuluj'
+            }
+          },
+          toolbar: {
+            searchPlaceholder:'Wyszukaj produkt',
+            searchTooltip: 'Wyszukaj'
+          },
+          pagination: {
+            labelDisplayedRows: ' {from}-{to} z {count}',
+            firstTooltip: 'Pierwsza strona',
+            previousTooltip: 'Poprzednia strona',
+            nextTooltip: 'Następna strona',
+            lastTooltip: 'Ostatnia strona',
+            saveTooltip: 'Zapisz'
+          }
+        }}
         />
     );
 };
