@@ -11,10 +11,11 @@ import { loadProductsRequest } from './redux/productsReducer';
 function App() {
   const dispatch = useDispatch();
   const filters = useSelector(({filters}) => filters);
+  const products = useSelector(({products}) => products.data);
   
   useEffect(() => {
     dispatch(loadProductsRequest(filters));
-  },[]);
+  },[...products]);
 
   return (
       <Switch>

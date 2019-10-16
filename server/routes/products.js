@@ -22,12 +22,15 @@ const router = express.Router();
 
 //get all products
 router.get('/products', productControllers.getProducts );
+//Add products
+router.post('/products/add', productControllers.addNewProduct);
 // get products by range
 router.route('/products/range/:startAt/:limit').get(productControllers.getProductsByRange);
 //get single product
 router.get('/products/:id', productControllers.getSingleProduct);
 //delete single product
 router.delete('/products/:id', productControllers.deleteSingleProduct);
+//Upload image on server
 router.post('/products/image/upload', productControllers.uploadImage);
 
 

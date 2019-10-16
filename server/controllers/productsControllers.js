@@ -1,11 +1,6 @@
 const Product = require('../models/productsModel');
-<<<<<<< HEAD
-var fs = require('fs');
-var formidable = require('formidable'); //Moduł do obsługi zapytań formularza
-=======
 const path = require('path');
 const uuid = require('uuid');
->>>>>>> Add import image on server with random name
 
 exports.getProducts = async (req, res) => {
 
@@ -68,16 +63,33 @@ exports.uploadImage = async (req, res) => {
     const newFileName = uuid();
     const fileExtension = req.files.file.name.slice(req.files.file.name.lastIndexOf('.'));
 
-    const savePath = path.join(__dirname, '../images', `${newFileName}${fileExtension}`);
+    const savePath = path.join(__dirname, '../assets/images', `${newFileName}${fileExtension}`);
 
     file.mv(savePath, err => {
       if (err) {
         console.error(err);
         return res.status(500).send(err);
       }
-      res.json({ fileName: newFileName, filePath: `/uploads/${newFileName}` });
+      res.json({ fileName: `${newFileName}${fileExtension}`});
     });
   } catch(e) {
     res.status(500).send(e);
   } 
+}
+
+exports.addNewProduct = async (req, res) => {
+  try {
+    let product = req.body; 
+    product.price = parseInt(product.price);
+    product.id = uuid();
+    product.amount = 1;
+    let newProduct = new Product(product);
+    console.log(newProduct);
+    res.status(200).json(await newProduct.save());
+  
+    
+    
+  } catch(e) {
+    res.status(500).send(e);
+  }
 }

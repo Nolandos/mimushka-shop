@@ -82,8 +82,11 @@ export const addNewProduct = (product, image) => {
         }
       });
 
-      product = {...product, name: res.data.fileName};
- 
+      product = {...product, image: res.data.fileName};
+      res = await axios.post(`${API_URL}/products/add`, product );
+
+      console.log(res);
+
     } catch(e) {
       console.log(e);
     }

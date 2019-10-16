@@ -6,10 +6,10 @@ const ProductForm = (props) => {
 
     const [state, setState] = useState({
         name: '',
-        price: '',
+        price: 0,
         additionalInfo: '',
         description: '',
-        src: ''
+        image: ''
     });
     const [image, setImage] = useState('');
 
