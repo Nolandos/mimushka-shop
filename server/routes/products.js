@@ -28,13 +28,8 @@ router.route('/products/range/:startAt/:limit').get(productControllers.getProduc
 router.get('/products/:id', productControllers.getSingleProduct);
 //delete single product
 router.delete('/products/:id', productControllers.deleteSingleProduct);
-router.post('/products/image/upload', function (req, res) {
-    upload(req, res, function (err) {
-        console.log("Request ---", req.body);
-        console.log("Request file ---", req.file);//Here you get file.
-        /*Now do where ever you want to do*/
-        
-    })
-})
+router.post('/products/image/upload', productControllers.uploadImage);
+
+
 
 module.exports = router;

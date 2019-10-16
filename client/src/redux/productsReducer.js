@@ -70,13 +70,20 @@ export const removeSingleProcutRequest = id => {
   };
 };
 
-export const uploadProductImage = image => {
+export const addNewProduct = (product, image) => {
   return async dispatch => {
-    
-  
     try {
-      console.log('image', image);
-      let res = await axios.post(`${API_URL}/products/image/upload`, image);
+      const formData = new FormData();
+      formData.append('file', image);
+
+      let res = await axios.post(`${API_URL}/products/image/upload`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      product = {...product, name: res.data.fileName};
+ 
     } catch(e) {
       console.log(e);
     }

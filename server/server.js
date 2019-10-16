@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const loadTestData = require('./testData');
 const path = require('path');
+const fileUpload = require('express-fileupload');
 const passport = require("passport");
 const users = require("./routes/users");
 const formidableMiddleware = require('express-formidable');
@@ -25,18 +26,13 @@ app.use(cors());
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
 app.use(mongoSanitize());
+app.use(fileUpload());
 app.use('/api', productsRoute);
 app.use('/api', codesRoute);
-app.use("/api", users);
-app.use(formidableMiddleware());
+app.use('/api', users);
 
 // Passport config
 require("./helpers/passport")(passport);
-
-//ROUTES
-app.get('/', (req, res) => {
-    res.send('Mimushka shop api');
-});
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'assets')));

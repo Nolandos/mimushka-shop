@@ -218,7 +218,7 @@ buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
 
-busboy@^0.2.11:
+busboy@^0.2.11, busboy@^0.2.14:
   version "0.2.14"
   resolved "https://registry.yarnpkg.com/busboy/-/busboy-0.2.14.tgz#6c2a622efcf47c57bbbe1e2a9c37ad36c7925453"
   integrity sha1-bCpiLvz0fFe7vh4qnDetNseSVFM=
@@ -617,6 +617,13 @@ expect-ct@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/expect-ct/-/expect-ct-0.2.0.tgz#3a54741b6ed34cc7a93305c605f63cd268a54a62"
   integrity sha512-6SK3MG/Bbhm8MsgyJAylg+ucIOU71/FzyFalcfu5nY19dH8y/z0tBJU0wrNBXD4B27EoQtqPF/9wqH0iYAd04g==
+
+express-fileupload@^1.1.6-alpha.5:
+  version "1.1.6-alpha.5"
+  resolved "https://registry.yarnpkg.com/express-fileupload/-/express-fileupload-1.1.6-alpha.5.tgz#5f3ca1a58d15e1b85b2f273e4fe099ca5da96c9f"
+  integrity sha512-M/PLB3moD1stnfYUHGtAVqfdjOz0VSY00NWnA9CpSEyPxhs/lEeperWOffaBzom+DO8Sq1z1okJOy2N4MDRYtA==
+  dependencies:
+    busboy "^0.2.14"
 
 express-formidable@^1.2.0:
   version "1.2.0"
