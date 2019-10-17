@@ -1,4 +1,5 @@
 import React from 'react';
+import './NewProduct.scss';
 import { useDispatch } from 'react-redux';
 import { ProductForm } from '../../index';
 import { addNewProduct } from '../../../redux/productsReducer';
@@ -10,7 +11,9 @@ const NewProduct = () => {
        dispatch(addNewProduct(product, image));
     }
     return (
-        <ProductForm addProduct={ addProduct } />
+        <div className="new-product">
+            <ProductForm addProduct={ addProduct } />
+        </div>
     )
 }
 

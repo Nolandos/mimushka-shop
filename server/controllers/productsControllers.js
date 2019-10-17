@@ -82,7 +82,6 @@ exports.addNewProduct = async (req, res) => {
     let product = req.body; 
     product.price = parseInt(product.price);
     product.id = uuid();
-    product.amount = 1;
     let newProduct = new Product(product);
     console.log(newProduct);
     res.status(200).json(await newProduct.save());

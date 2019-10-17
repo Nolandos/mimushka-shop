@@ -3,25 +3,18 @@ import './UploadInput.scss';
 
 const UploadInput = (props) => {
     const { handleChangeImage }  = props;
-    /*
-    const test = (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('file', file);
-        console.log(formData);
-        console.log(file);
-       
-    }
-    */
-   
-
-    return (  
-        <input
-            type='file'
-            className='custom-file-input'
-            id='customFile'
-            onChange={(e)=>handleChangeImage(e.target.files[0])}
-          />   
+    
+    return (
+        <div className='upload-input'> 
+            <input
+                type="file"
+                name="file"
+                id="file"
+                onChange={(e)=>handleChangeImage(e.target.files[0])}
+            ></input>
+            <label for="file">Dodaj zdjęcie</label>   
+            {props.imageUrl && <img src={props.imageUrl}></img>}
+        </div> 
     );
 }
 
