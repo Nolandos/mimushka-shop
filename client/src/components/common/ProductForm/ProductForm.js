@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState } from 'react'; 
 import './ProductForm.scss';
 import TextField from '@material-ui/core/TextField';
 import { UploadInput } from '../../index';
@@ -8,7 +8,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, amount, ...props }) => {
-    console.log(props)
+
     const [state, setState] = useState({
         name: name || '',
         price: price || 0,
@@ -17,7 +17,6 @@ const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, a
         image: props.image || '',
         amount: 1
     });
-
     const [image, setImage] = useState(props.image || '');
     const [tempImageSrc, setTempImageSrc] = useState(props.image ?  `http://localhost:8000/images/${props.image}` : '');
 
@@ -33,7 +32,8 @@ const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, a
     const setProductValue = e => {
         e.preventDefault();
         handleSubmit(state, image);
-        if(handleSubmit.name === 'addProduct') {
+        
+        if(handleSubmit.name === 'addProduct' && props.error === null) {
             setState({
                 name: '',
                 price: 0,
@@ -43,7 +43,6 @@ const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, a
                 amount: 1 
             })
         setTempImageSrc(''); 
-
         } 
     }
     

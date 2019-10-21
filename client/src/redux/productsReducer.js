@@ -62,7 +62,7 @@ export const removeSingleProcutRequest = id => {
   
     try {
       let res = await axios.delete(`${API_URL}/products/${id}`);
-      console.log(res.data);  
+
       dispatch(endRequest(requestName));
     } catch(e) {
       dispatch(errorRequest(e.message, requestName));
@@ -84,11 +84,9 @@ export const addNewProduct = (product, image) => {
 
       product = {...product, image: res.data.fileName};
       res = await axios.post(`${API_URL}/products/add`, product );
-
-      console.log(res);
-
+      dispatch(endRequest(requestName));
     } catch(e) {
-      console.log(e);
+      dispatch(errorRequest(e.response.data, requestName));
     }
   };
 };
