@@ -15,7 +15,7 @@ function App() {
   
   useEffect(() => {
     dispatch(loadProductsRequest(filters));
-  },[...products]);
+  },[]);
 
   return (
       <Switch>

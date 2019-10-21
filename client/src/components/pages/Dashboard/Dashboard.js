@@ -12,7 +12,8 @@ import {
     OrdersPage,
     PrivateRoute,
     ProductsListPage,
-    NewProductPage } from '../../index';
+    NewProductPage,
+    EditProductPage } from '../../index';
 
 const DashboardPage = () => {
     const [links] = useState([
@@ -32,6 +33,7 @@ const DashboardPage = () => {
             className: 'products-list' 
         }    
     ]);
+    
     return (
         <div className="dashboard">
             <NavBar>
@@ -45,6 +47,7 @@ const DashboardPage = () => {
                     <PrivateRoute path="*/orders" exact component={ OrdersPage }/>
                     <PrivateRoute path="*/products-list" exact component={ ProductsListPage }/>
                     <PrivateRoute path="*/new-product" exact component={ NewProductPage }/>
+                    <PrivateRoute path="*/edit-product/:id" exact component={ EditProductPage }/>
                 </Switch>
             </div>
         </div>

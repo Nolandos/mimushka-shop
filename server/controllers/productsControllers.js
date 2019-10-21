@@ -84,10 +84,29 @@ exports.addNewProduct = async (req, res) => {
     product.id = uuid();
     let newProduct = new Product(product);
     console.log(newProduct);
-    res.status(200).json(await newProduct.save());
-  
-    
-    
+    res.status(200).json(await newProduct.save());  
+  } catch(e) {
+    res.status(500).send(e);
+  }
+}
+
+exports.updateSingleProduct = async (req, res) => {
+  try {
+    console.log('req',req.params.id);
+    const updateProduct = await Product.updateOne(
+      { id: req.params.id },
+      { $set: 
+        {
+          name: req.body.name,
+          price: req.body.price,
+          amount: req.body.amount,
+          image: req.body.image,
+          description: req.body.description,
+          additionalInfo: req.body.additionalInfo
+        }
+      }, { runValidators: true } 
+    );
+    res.status(200).json(updateProduct);
   } catch(e) {
     res.status(500).send(e);
   }

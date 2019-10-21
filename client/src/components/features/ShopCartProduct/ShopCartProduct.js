@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ShopCartProduct.scss';
 import { PRODUCTS_IMAGE_URL } from '../../../config';
+import { HtmlBox } from '../../index';
 
 const ShopCartProduct = ({ id, image, name, description, price, addUnit, removeUnit, amount, removeProduct }) => {
     const [units, setUnits ] = useState (amount || 1);
@@ -24,7 +25,9 @@ const ShopCartProduct = ({ id, image, name, description, price, addUnit, removeU
             </div>
             <div className="shop-cart-product__content">
                 <div className="shop-cart-product__name">{ name }</div>
-                <div className="shop-cart-product__description">{ description }</div>
+                <div className="shop-cart-product__description">
+                    <HtmlBox>{ description }</HtmlBox>
+                </div>
             </div>
             <div className="shop-cart-product__price">{ price }</div>
             <div className="shop-cart-product__operations">

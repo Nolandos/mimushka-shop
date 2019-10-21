@@ -40,6 +40,9 @@ import ProductSummary from './features/ProductSummary/ProductSummary';
 import NewProduct from './features/NewProduct/NewProduct';
 import ProductForm from './common/ProductForm/ProductForm';
 import UploadInput from './common/UploadInput/UploadInput';
+import HtmlBox from './common/HtmlBox/HtmlBox';
+import EditProductPage from './pages/EditProductPage/EditProductPage';
+import EditProduct from './features/EditProduct/EditProduct';
 
 export {
 	Logo,
@@ -83,5 +86,8 @@ export {
     ProductSummary,
     NewProduct,
     ProductForm,
-    UploadInput
+    UploadInput,
+    HtmlBox,
+    EditProductPage,
+    EditProduct
 }

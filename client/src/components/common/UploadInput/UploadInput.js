@@ -12,7 +12,7 @@ const UploadInput = (props) => {
                 id="file"
                 onChange={(e)=>handleChangeImage(e.target.files[0])}
             ></input>
-            <label for="file">Dodaj zdjęcie</label>   
+            <label htmlFor="file">Dodaj zdjęcie</label>   
             {props.imageUrl && <img src={props.imageUrl}></img>}
         </div> 
     );

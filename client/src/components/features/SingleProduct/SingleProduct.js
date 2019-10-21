@@ -5,7 +5,7 @@ import { addProduct } from '../../../redux/shopCartReducer';
 import './SingleProduct.scss';
 import { PRODUCTS_IMAGE_URL } from '../../../config';
 
-import { Button } from '../../index';
+import { Button, HtmlBox } from '../../index';
 
 const SingleProduct = ({ match }) => {
     const dispatch = useDispatch();
@@ -28,7 +28,9 @@ const SingleProduct = ({ match }) => {
             <div className="single-product__content">
                 <div className="single-product__name">{ name }</div>
                 <div className="single-product__price">{ price } zł</div>
-                <div className="single-product__description">{ description }</div>
+                <div className="single-product__description">
+                    <HtmlBox>{ description }</HtmlBox>
+                </div>
                 <Button action={ addToCart } variant="primary">Dodaj do koszyka</Button>
             </div>
         </div>

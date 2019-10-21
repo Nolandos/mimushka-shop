@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import MaterialTable from 'material-table';
 import tableIcons from '../../../utils/Material-UI/TableIcons';
 import { ProductsListTableTranslate } from '../../../utils/Material-UI/TableTranslations'; 
+import { HtmlBox } from '../../index';
 
 import { removeSingleProcutRequest } from '../../../redux/productsReducer';
 
@@ -14,19 +16,32 @@ const ProductsList = () => {
     dispatch(removeSingleProcutRequest(id));
   }
 
+  const test = (id) => {
+    setState({...state, currentId: id, redirect: true })
+  }
+ 
+
   useEffect(() => {
     setState({...state, data: products} )
   }, [products]);
 
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         columns: [
           { title: 'Nazwa', field: 'name' },
           { title: 'Cena', field: 'price', type: 'numeric' },
           { title: 'Informacja', field: 'additionalInfo' },
-          { title: 'Opis', field: 'description' },
+          { 
+            title: 'Opis', 
+            field: 'description', 
+            render: rowData => <HtmlBox>{ rowData.description }</HtmlBox>
+          },
         ],
-        data: products
+        data: products,
+        redirect: false,
+        currentId: ''
       });
+
+      if(state.redirect === true) return <Redirect to={`/admin/dashboard/edit-product/${state.currentId}`} />
       
     return (
         <MaterialTable
@@ -50,7 +65,7 @@ const ProductsList = () => {
           {
             icon: tableIcons.Edit,
             tooltip: 'Edytuj',
-            onClick: (e, data) => test(data.id)
+            onClick: (e,data) => test(data.id)
           }
         ]}
         localization={ProductsListTableTranslate}

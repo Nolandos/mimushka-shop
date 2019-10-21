@@ -1,20 +1,7 @@
 const express = require('express');
 
 const productControllers = require('../controllers/productsControllers');
-const multer = require("multer");
 
-const storage = multer.diskStorage({
-    destination: "./public/uploads/",
-    filename: function(req, file, cb){
-       cb(null,"IMAGE-" + Date.now() + path.extname(file.originalname));
-    }  
- });
- 
- const upload = multer({
-    storage: storage,
-    limits:{fileSize: 1000000},
- }).single("myImage");
- console.log('upload',upload)
 //ROUTER module
 const router = express.Router();
 
@@ -30,6 +17,8 @@ router.route('/products/range/:startAt/:limit').get(productControllers.getProduc
 router.get('/products/:id', productControllers.getSingleProduct);
 //delete single product
 router.delete('/products/:id', productControllers.deleteSingleProduct);
+//update single product
+router.patch('/products/:id', productControllers.updateSingleProduct);
 //Upload image on server
 router.post('/products/image/upload', productControllers.uploadImage);
 

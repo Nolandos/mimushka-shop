@@ -10,9 +10,10 @@ const NewProduct = () => {
     const addProduct = (product, image) => {
        dispatch(addNewProduct(product, image));
     }
+    
     return (
         <div className="new-product">
-            <ProductForm addProduct={ addProduct } />
+            <ProductForm handleSubmit={ addProduct } />
         </div>
     )
 }

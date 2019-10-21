@@ -93,6 +93,27 @@ export const addNewProduct = (product, image) => {
   };
 };
 
+export const editProductRequest = (product, image, id) => {
+  return async dispatch => {
+    try {
+      const formData = new FormData();
+      formData.append('file', image);
+
+      let res = await axios.post(`${API_URL}/products/image/upload`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
+      product = {...product, image: res.data.fileName};
+      res = await axios.patch(`${API_URL}/products/${id}`, product );
+      console.log(res);
+    } catch(e) {
+      console.log(e);
+    }
+  }
+}
+
 //INITIAL STATE
 const initialState = {
     data: [],
