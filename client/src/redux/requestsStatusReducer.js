@@ -30,6 +30,11 @@ const initialState = {
       pending: false,
       error: null,
       success: null
+    },
+    products_upload_request: {
+      pending: false,
+      error: null,
+      success: null
     }
   };
 

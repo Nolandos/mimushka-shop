@@ -35,7 +35,6 @@ const Login = () => {
         <div className="login-panel">
             <AccountCircleIcon />
             <h1>Admin panel</h1>
-            {console.log(request.error)}
             { request.pending === true && <Spinner /> } 
             { request.error && <Alert variant='error'>{request.error}</Alert>}
             { request.pending === false && 

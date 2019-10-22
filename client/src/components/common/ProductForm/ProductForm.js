@@ -4,8 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import { UploadInput } from '../../index';
 import Button from '@material-ui/core/Button';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import CKEditor from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, amount, ...props }) => {
 
@@ -17,33 +17,34 @@ const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, a
         image: props.image || '',
         amount: 1
     });
-    const [image, setImage] = useState(props.image || '');
+    const [image, setImage] = useState('');
     const [tempImageSrc, setTempImageSrc] = useState(props.image ?  `http://localhost:8000/images/${props.image}` : '');
 
     const handleChangeImage = file => {
         setImage(file);
         const reader = new FileReader();
         reader.onload = e => { file && setTempImageSrc(e.target.result) };
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file);  
     };
 
     const handleChange = (e, changeField) => setState({ ...state, [changeField]: e.target.value });
 
-    const setProductValue = e => {
+    const setProductValue = async e => {
         e.preventDefault();
-        handleSubmit(state, image);
-        
-        if(handleSubmit.name === 'addProduct' && props.error === null) {
-            setState({
+        await handleSubmit(state, image);
+          
+        if(handleSubmit.name === 'addProduct') {
+            await setState({
+                ...state,
                 name: '',
                 price: 0,
                 additionalInfo: '',
-                description: '',
                 image: '',
                 amount: 1 
             })
-        setTempImageSrc(''); 
-        } 
+            setTempImageSrc('');
+            handleChangeDescription('');
+        }  
     }
     
     const handleChangeDescription = value => setState({...state, description: value });
@@ -77,9 +78,14 @@ const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, a
                 onChange={ (e) => handleChange(e, 'additionalInfo') }
                 margin="normal"
             />
-            <ReactQuill 
-                onChange={ handleChangeDescription } 
-            />
+                 <CKEditor
+                    editor={ ClassicEditor }
+                    data={ state.description }
+                    onChange={ ( e, editor ) => {
+                        const data = editor.getData();
+                        handleChangeDescription(data);
+                    } }
+                />
                
                 <Button
                     variant="contained"

@@ -7,6 +7,7 @@ import priceFilters from '../utils/priceFilter';
 // ACTION NAME CREATOR
 const reducerName = 'products';
 const requestName = 'products_request';
+const requestUploadName = 'products_upload_request';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 // ACTION TYPES
@@ -28,9 +29,9 @@ export const loadProductsRequest = filter => {
         await new Promise((resolve, reject) => setTimeout(resolve, 500));
         let res = await axios.get(`${API_URL}/products`);
         let products = res.data;
-
-        if(filter.SORT_FILTER !== 'none') products = await sortByFilters(filter, res.data);
-        if(filter.PRICE_FILTER !== 'none') products = await priceFilters(filter, res.data);
+        console.log(filter);
+        //if(filter.SORT_FILTER !== 'none') products = await sortByFilters(filter, res.data);
+        //if(filter.PRICE_FILTER !== 'none') products = await priceFilters(filter, res.data);
         
         let amount = products.length;
 
@@ -84,9 +85,10 @@ export const addNewProduct = (product, image) => {
 
       product = {...product, image: res.data.fileName};
       res = await axios.post(`${API_URL}/products/add`, product );
-      dispatch(endRequest(requestName));
+
+      dispatch(endRequest(requestUploadName));
     } catch(e) {
-      dispatch(errorRequest(e.response.data, requestName));
+      dispatch(errorRequest(e.response.data, requestUploadName));
     }
   };
 };

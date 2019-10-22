@@ -6,17 +6,13 @@ import {
   AdminLayout
 } from './components';
 
-import { loadProductsRequest } from './redux/productsReducer';
+//import { loadProductsRequest } from './redux/productsReducer';
 
 function App() {
-  const dispatch = useDispatch();
-  const filters = useSelector(({filters}) => filters);
-  const products = useSelector(({products}) => products.data);
+  //const dispatch = useDispatch();
+  //const filters = useSelector(({filters}) => filters);
+  //const products = useSelector(({products}) => products.data);
   
-  useEffect(() => {
-    dispatch(loadProductsRequest(filters));
-  },[]);
-
   return (
       <Switch>
         <Route path="/admin" component={AdminLayout} />

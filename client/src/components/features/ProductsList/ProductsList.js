@@ -6,7 +6,7 @@ import tableIcons from '../../../utils/Material-UI/TableIcons';
 import { ProductsListTableTranslate } from '../../../utils/Material-UI/TableTranslations'; 
 import { HtmlBox } from '../../index';
 
-import { removeSingleProcutRequest } from '../../../redux/productsReducer';
+import { removeSingleProcutRequest, loadProductsRequest } from '../../../redux/productsReducer';
 
 const ProductsList = () => {
   const dispatch = useDispatch();
@@ -22,8 +22,12 @@ const ProductsList = () => {
  
 
   useEffect(() => {
-    setState({...state, data: products} )
-  }, [products]);
+    const fetchData = async () => {
+      await dispatch(loadProductsRequest());
+      setState({...state, data: products} )
+    }
+    fetchData();
+  },[products.length]);
 
     const [state, setState] = useState({
         columns: [
