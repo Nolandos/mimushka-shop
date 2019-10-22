@@ -29,9 +29,12 @@ export const loadProductsRequest = filter => {
         await new Promise((resolve, reject) => setTimeout(resolve, 500));
         let res = await axios.get(`${API_URL}/products`);
         let products = res.data;
-        console.log(filter);
-        //if(filter.SORT_FILTER !== 'none') products = await sortByFilters(filter, res.data);
-        //if(filter.PRICE_FILTER !== 'none') products = await priceFilters(filter, res.data);
+        
+
+        if(filter) {
+          if(filter.SORT_FILTER !== 'none') products = await sortByFilters(filter, res.data);
+          if(filter.PRICE_FILTER !== 'none') products = await priceFilters(filter, res.data);
+        }
         
         let amount = products.length;
 
