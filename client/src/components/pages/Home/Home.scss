@@ -10,3 +10,17 @@
         width: 70vw;
     }
 }
+
+@media (max-width: 768px) { 
+    .home {
+        .sidebar {
+            position: absolute;
+            width: 100%;
+            background-color: rgba(255,255,255, 0.5);
+        }
+    
+        .products {
+            width: 100%;
+        }
+    }
+}

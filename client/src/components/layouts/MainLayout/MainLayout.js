@@ -1,9 +1,17 @@
 import React,{ useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavBar, Footer, PageContainer } from '../../index';
-import { CartIcon, Droppable } from '../../index';
+import { Link } from 'react-router-dom';
 import { addProduct } from '../../../redux/shopCartReducer';
-import { MainMenu, Logo } from '../../index';
+import './MainLayout.scss';
+import { 
+    NavBar, 
+    Footer, 
+    PageContainer,
+    CartIcon, 
+    Droppable, 
+    MainMenu, 
+    Logo 
+} from '../../index';
 
 const MainLayout = ({ children }) => {
     const dispatch = useDispatch();
@@ -21,6 +29,11 @@ const MainLayout = ({ children }) => {
 
     return (
         <PageContainer>
+        <div className="response-menu-belt">
+            <Link to="/cart">
+                <CartIcon />
+            </Link>
+        </div>
             <NavBar>
                 <Logo />
                 <MainMenu links={ links } />

@@ -56,7 +56,7 @@ exports.deleteSingleProduct = async (req, res) => {
 exports.uploadImage = async (req, res) => {
   try {
     if (req.files === null) {
-      return res.status(400).json({ msg: 'No file uploaded' });
+      return res.status(400).json('Brak obrazka');
     }
   
     const file = req.files.file;
@@ -80,10 +80,14 @@ exports.uploadImage = async (req, res) => {
 exports.addNewProduct = async (req, res) => {
   try {
     let product = req.body; 
+    
+    if (product.name === '') res.status(400).json('Brak Nazwy');
+    if (product.description === '') res.status(400).json('Brak Opisu');
+    
     product.price = parseInt(product.price);
     product.id = uuid();
+
     let newProduct = new Product(product);
-    console.log(newProduct);
     res.status(200).json(await newProduct.save());  
   } catch(e) {
     res.status(500).send(e);
@@ -92,7 +96,6 @@ exports.addNewProduct = async (req, res) => {
 
 exports.updateSingleProduct = async (req, res) => {
   try {
-    console.log('req',req.params.id);
     const updateProduct = await Product.updateOne(
       { id: req.params.id },
       { $set: 

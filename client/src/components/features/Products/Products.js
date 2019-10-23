@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Products.scss';
-import { PreviewProduct, Pagination, Draggable, Spinner } from '../../index';
+import { PreviewProduct, Pagination, Draggable, Spinner, Alert } from '../../index';
 import { loadProductsRequest } from '../../../redux/productsReducer';
 
 const Products = props => {
@@ -30,7 +30,8 @@ const Products = props => {
 
   return (
     <div className="products">
-    {request.pending === true && <Spinner />}
+    { request.pending === true && <Spinner /> }
+    { products.length === 0 && request.pending === false && <Alert variant='warning'>Brak Produktów</Alert> }
       {products.slice(startAt, endAt).map(item => 
         <Draggable key={item.id} data={item} image={item.image}>
           <PreviewProduct {...item} key={item.id} />

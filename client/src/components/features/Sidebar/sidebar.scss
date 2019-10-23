@@ -1,3 +1,161 @@
+@import '../../../styles/settings.scss';
+
 .sidebar {
+    &__hamburger {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+
+        &__overlay {
+            position: fixed;
+            top: 60px;
+            left: 0px;
+            transform: translateX(-150%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255,255,255, 0.6);
+
+            &.open {
+                transform: translateX(0);
+            } 
+        }
+
+        &__menu {
+            padding-left: 35px;
+            background-color: $color-text-candy;
+            margin: 0;
+            z-index: 11;
+            width: 35vw;
+            height: 100%;
+
+            .sort-list,
+            .price-list {
+                margin-top: 0;
+                padding-top: 20px;
+
+                >ul {
+                    margin-top: 0;
+                    li {
+                        color: $color-text;
     
+                        &:hover {
+                            color: $color-text; 
+                        }
+                    }
+                }
+
+                >p {
+                    margin: 0;
+                    color: #fff;
+                }
+    
+            } 
+            .price-list {       
+                .MuiCheckbox-colorSecondary.Mui-checked,
+                .MuiTypography-body1 {
+                    color: $color-text;
+                }  
+            }
+
+            .sort-list {
+                .sort-list__options {
+                    .sort-list__option {
+                        &:hover {
+                            color: #fff; 
+                        } 
+                    }
+                }
+                
+            }
+        }
+
+        &__hamburger {
+            position: fixed;
+            top: 15px;
+            left: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            cursor: pointer;
+            z-index: 10;
+            padding: 0px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+
+            .filter-icon {
+                opacity: 1;
+                color: #fff;
+                width: 85%;
+                height: 85%;
+            }
+
+            .close-icon {
+                opacity: 0;
+                position: absolute;
+                color: #fff;
+                width: 85%;
+                height: 85%;
+            }
+
+            &.open {
+                .filter-icon {
+                    opacity: 0;
+                }
+
+                .close-icon {
+                    opacity: 1;
+                }
+
+                >div {
+                    &:nth-child(1) {
+                       
+                        transform: rotate(45deg);
+                    }
+          
+                    &:nth-child(3) {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+
+            div {
+                width: 2rem;
+                height: 0.25rem;
+                background-color: #000;
+                border-radius: 10px;
+                transition: all 0.3s linear;
+                position: relative;
+                transform-origin: 1px;
+               
+
+                &:nth-child(2) {
+                    visibility: hidden;
+                }
+            }
+        }
+    }   
+}
+
+@media (max-width: 620px) { 
+    .sidebar {
+        &__menu {
+            width: 70vw;
+        }
+    }
+}
+
+@media (max-width: 376px) { 
+    .sidebar {
+        &__menu {
+            width: 80vw;
+        }
+    }        
 }

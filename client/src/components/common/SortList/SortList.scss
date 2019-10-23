@@ -19,6 +19,22 @@
             &:hover {
                 color: $color-text-candy;
             }
+
+            &.active {
+                color: $color-text-candy;
+            }
         }
     }
 }
+
+@media (max-width: 768px) {
+    .sort-list {
+        .sort-list__options {
+            .sort-list__option {
+                &.active {
+                    color: #fff;
+                }
+            }
+        }
+    }
+ }

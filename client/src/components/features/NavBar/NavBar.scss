@@ -1,6 +1,103 @@
+@import '../../../styles/settings.scss';
+
 .navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+    &__hamburger {
+        display: none;
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) { 
+    .navbar {
+    
+        &__menu {
+            position: fixed;
+            left: 0;
+            right: 0;
+            transform: translateY(-150%);
+            transition: transform 0.3s ease-in-out;
+            background-color: $color-text-candy;
+            z-index: 5;
+            height: 100%;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+
+            .main-menu {
+                flex-direction: column;
+
+                .cart-icon {
+                    &__amount-field {
+                        background-color: #fff;
+                        color: $color-text-candy;
+                    }
+                }
+
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 7px 0;
+                }
+
+                a {
+                    color: #fff;  
+                }
+            }
+
+            &.open {
+                transform: translateY(45px);
+            }
+        }
+
+        &__hamburger {
+            position: fixed;
+            top: 15px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            cursor: pointer;
+            z-index: 10;
+            padding: 0px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+
+            &.open {
+                >div {
+                    &:first-child {
+                        transform: rotate(45deg);
+                    }
+          
+                    &:nth-child(2) {
+                        opacity: 0;
+                        transform: rotate(20px);
+                    }
+          
+                    &:nth-child(3) {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+
+            div {
+                width: 2rem;
+                height: 0.25rem;
+                background-color: #fff;
+                border-radius: 10px;
+                transition: all 0.3s linear;
+                position: relative;
+                transform-origin: 1px;
+            }
+        }
+    }
 }

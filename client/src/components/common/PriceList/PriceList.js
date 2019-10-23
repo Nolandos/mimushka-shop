@@ -19,9 +19,7 @@ const PriceList = () => {
       });
 
       const handleChange = name => event => {
-        Object.keys(state).map(item => {
-            setState(state[item] = false);
-        })
+        Object.keys(state).forEach(item => setState(state[item] = false));
         setState({ ...state, [name]: event.target.checked });
         if(event.target.checked) dispatch(setPriceFilter(event.target.value));
         else if(!event.target.checked) dispatch(setPriceFilter('none'));
