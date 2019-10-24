@@ -9,7 +9,7 @@ import MainLayout from './layouts/MainLayout/MainLayout';
 import MainMenu from './layouts/MainMenu/MainMenu';
 import PageContainer from './layouts/PageContainer/PageContainer';
 import CartPage from './pages/Cart/Cart';
-import Contact from './pages/Contact/Contact';
+import ContactPage from './pages/Contact/Contact';
 import FAQPage from './pages/FAQ/FAQ';
 import FAQ from './features/FAQ/FAQ';
 import Home from './pages/Home/Home';
@@ -46,6 +46,8 @@ import EditProductPage from './pages/EditProductPage/EditProductPage';
 import EditProduct from './features/EditProduct/EditProduct';
 import ExtensionPannel from './common/ExtensionPannel/ExtensionPannel';
 import Regulations from './features/Regulations/Regulations';
+import Contact from './features/Contact/Contact';
+import EmailForm from './common/EmailForm/EmailForm';
 
 export {
 	Logo,
@@ -59,7 +61,7 @@ export {
     MainMenu,
     PageContainer,
     CartPage,
-    Contact,
+    ContactPage,
     FAQPage,
     Home,
     RegulationsPage,
@@ -95,5 +97,7 @@ export {
     EditProduct,
     ExtensionPannel,
     FAQ,
-    Regulations
+    Regulations,
+    Contact,
+    EmailForm 
 }

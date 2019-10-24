@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { 
     MainLayout,
     CartPage,
-    Contact,
+    ContactPage,
     FAQPage,
     Home,
     RegulationsPage,
@@ -18,7 +18,7 @@ import {
           <Route path="/" exact component={ Home } />
           <Route path="/product/:id" exact component={ SingleProductPage } />
           <Route path="/cart" exact component={ CartPage } />
-          <Route path="/contact" exact component={ Contact } />
+          <Route path="/contact" exact component={ ContactPage } />
           <Route path="/faq" exact component={ FAQPage } />
           <Route path="/regulations" exact component={ RegulationsPage } />
         </Switch>

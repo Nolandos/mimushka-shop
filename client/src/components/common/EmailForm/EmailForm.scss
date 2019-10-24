@@ -1,0 +1,49 @@
+@import '../../../styles/settings.scss';
+
+.email-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    label {
+        &.Mui-focused {
+            color: $color-text;
+        }
+    }
+
+    &__text {
+        width: 100%;
+        margin: 16px 0;
+        padding: 15px;
+        resize: none;
+        outline: none;
+
+        
+        &:focus {
+            border: 1.5px solid $color-text-candy;
+        }
+    }
+
+    .MuiButton-root {
+        background-color: $color-text-candy;
+        border-radius: 0;
+
+        &:hover {
+            background-color: $color-text-candy-light;       
+        }
+    }
+
+    .MuiOutlinedInput-root {
+        >fieldset {
+            border-radius: 0;
+            border-color: $color-text-light;
+        }
+        &:hover fieldset {
+          border-color: $color-text;
+        }
+        &.Mui-focused fieldset {
+          border-color: #ff6b6bde;
+        }
+    }
+}
