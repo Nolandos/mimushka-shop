@@ -56,7 +56,9 @@
     
             } 
             .price-list {       
-                .MuiCheckbox-colorSecondary.Mui-checked,
+                .MuiCheckbox-colorSecondary.Mui-checked {
+                    color: #fff;
+                }
                 .MuiTypography-body1 {
                     color: $color-text;
                 }  

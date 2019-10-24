@@ -10,7 +10,8 @@ import MainMenu from './layouts/MainMenu/MainMenu';
 import PageContainer from './layouts/PageContainer/PageContainer';
 import CartPage from './pages/Cart/Cart';
 import Contact from './pages/Contact/Contact';
-import FAQ from './pages/FAQ/FAQ';
+import FAQPage from './pages/FAQ/FAQ';
+import FAQ from './features/FAQ/FAQ';
 import Home from './pages/Home/Home';
 import Regulations from './pages/Regulations/Regulations';
 import SortList from './common/SortList/SortList';
@@ -43,6 +44,7 @@ import UploadInput from './common/UploadInput/UploadInput';
 import HtmlBox from './common/HtmlBox/HtmlBox';
 import EditProductPage from './pages/EditProductPage/EditProductPage';
 import EditProduct from './features/EditProduct/EditProduct';
+import ExtensionPannel from './common/ExtensionPannel/ExtensionPannel';
 
 export {
 	Logo,
@@ -57,7 +59,7 @@ export {
     PageContainer,
     CartPage,
     Contact,
-    FAQ,
+    FAQPage,
     Home,
     Regulations,
     SortList,
@@ -89,5 +91,7 @@ export {
     UploadInput,
     HtmlBox,
     EditProductPage,
-    EditProduct
+    EditProduct,
+    ExtensionPannel,
+    FAQ
 }

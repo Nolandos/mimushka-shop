@@ -1,9 +1,7 @@
 import React from 'react';
-
-const FAQ = () => (
-  <div>
-    <h1>FAQ</h1>
-  </div>
+import { FAQ } from '../../index';
+const FAQPage = () => (
+  <FAQ />
 );
 
-export default FAQ;
+export default FAQPage;

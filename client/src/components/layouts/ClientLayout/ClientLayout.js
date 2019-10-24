@@ -5,7 +5,7 @@ import {
     MainLayout,
     CartPage,
     Contact,
-    FAQ,
+    FAQPage,
     Home,
     Regulations,
     SingleProductPage
@@ -15,12 +15,12 @@ import {
     return (
       <MainLayout>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={ Home } />
           <Route path="/product/:id" exact component={ SingleProductPage } />
-          <Route path="/cart" exact component={CartPage} />
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/faq" exact component={FAQ} />
-          <Route path="/regulations" exact component={Regulations} />
+          <Route path="/cart" exact component={ CartPage } />
+          <Route path="/contact" exact component={ Contact } />
+          <Route path="/faq" exact component={ FAQPage } />
+          <Route path="/regulations" exact component={ Regulations } />
         </Switch>
       </MainLayout>
     );

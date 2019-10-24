@@ -15,9 +15,9 @@
 
 @media (max-width: 768px) { 
     .navbar {
-    
         &__menu {
             position: fixed;
+            top: 14px;
             left: 0;
             right: 0;
             transform: translateY(-150%);

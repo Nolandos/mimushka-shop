@@ -1,0 +1,10 @@
+@import '../../../styles/settings.scss';
+
+.MuiExpansionPanelSummary-root.Mui-expanded {
+    background-color: $color-text-candy;
+    color: #fff;
+
+    .MuiIconButton-label {
+        color: #fff;
+    }
+}

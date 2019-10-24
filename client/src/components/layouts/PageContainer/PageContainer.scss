@@ -6,3 +6,9 @@
   margin: 0 auto;
   padding: $base-size $base-size * 2;
 }
+
+@media (max-width: 768px) {
+  .container-fluid { 
+    margin-top: 50px;  
+  }
+}
