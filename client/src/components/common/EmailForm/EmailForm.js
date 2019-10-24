@@ -4,12 +4,13 @@ import TextField from '@material-ui/core/TextField';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
+import { SpinningCircles } from 'svg-loaders-react';
 
-const EmailForm = ({ sendEmail }) => {
+const EmailForm = ({ sendEmail, pending }) => {
     const [state, setState]= useState({
-        email: '',
+        address: '',
         subject: '',
-        text: ''
+        content: ''
     });
 
     const handleChange = value => e => setState({...state, [value]: e.target.value}); 
@@ -26,13 +27,15 @@ const EmailForm = ({ sendEmail }) => {
                     label="Email"
                     margin="normal"
                     variant="outlined"  
-                    onChange={handleChange('email')} 
+                    value= {state.address}
+                    onChange={handleChange('address')} 
                 />
                 <TextField
                     id="subject"
                     label="Temat"
                     margin="normal"
                     variant="outlined"
+                    value={state.subject}
                     onChange={handleChange('subject')}
                 />
                 <TextareaAutosize
@@ -41,14 +44,16 @@ const EmailForm = ({ sendEmail }) => {
                     className="email-form__text"
                     aria-label="maximum height"
                     placeholder="Wiadomość..."
-                    value= {state.text}
-                    onChange={handleChange('text')}
+                    value= {state.content}
+                    onChange={handleChange('content')}
                 />
+
                 <Button
                     variant="contained"
                     color="primary"
                     type="submit"
-                    endIcon={<SendIcon />}
+                    className="email-form__sumbit-button"
+                    endIcon={ pending === false ? <SendIcon /> : <SpinningCircles className="loader" /> }
                 >
                     Wyślij wiadomość
                 </Button>

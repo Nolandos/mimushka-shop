@@ -9,12 +9,12 @@ const loadTestData = require('./testData');
 const path = require('path');
 const fileUpload = require('express-fileupload');
 const passport = require("passport");
-const users = require("./routes/users");
-const formidableMiddleware = require('express-formidable');
 
 //Import Routes
 const productsRoute  = require('./routes/products');
 const codesRoute  = require('./routes/codes');
+const usersRoute = require("./routes/users");
+const emailRoute  = require('./routes/email');
 
 //Create app 
 const app = express();
@@ -29,7 +29,8 @@ app.use(mongoSanitize());
 app.use(fileUpload());
 app.use('/api', productsRoute);
 app.use('/api', codesRoute);
-app.use('/api', users);
+app.use('/api', usersRoute);
+app.use('/api', emailRoute);
 
 // Passport config
 require("./helpers/passport")(passport);

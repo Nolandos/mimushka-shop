@@ -28,13 +28,24 @@
     .MuiButton-root {
         background-color: $color-text-candy;
         border-radius: 0;
+        width: 60%;
+        height: 65px;
+        align-self: center;
 
+        .MuiButton-endIcon {
+            .loader {
+               transform: scale(0.7);
+            }
+        }
+        
         &:hover {
             background-color: $color-text-candy-light;       
         }
     }
 
     .MuiOutlinedInput-root {
+        width: 100%;
+
         >fieldset {
             border-radius: 0;
             border-color: $color-text-light;
