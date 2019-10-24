@@ -13,7 +13,7 @@ import Contact from './pages/Contact/Contact';
 import FAQPage from './pages/FAQ/FAQ';
 import FAQ from './features/FAQ/FAQ';
 import Home from './pages/Home/Home';
-import Regulations from './pages/Regulations/Regulations';
+import RegulationsPage from './pages/Regulations/Regulations';
 import SortList from './common/SortList/SortList';
 import SingleProductPage from './pages/SingleProduct/SingleProduct';
 import Button from './common/Button/Button';
@@ -45,6 +45,7 @@ import HtmlBox from './common/HtmlBox/HtmlBox';
 import EditProductPage from './pages/EditProductPage/EditProductPage';
 import EditProduct from './features/EditProduct/EditProduct';
 import ExtensionPannel from './common/ExtensionPannel/ExtensionPannel';
+import Regulations from './features/Regulations/Regulations';
 
 export {
 	Logo,
@@ -61,7 +62,7 @@ export {
     Contact,
     FAQPage,
     Home,
-    Regulations,
+    RegulationsPage,
     SortList,
     SingleProductPage,
     Button,
@@ -93,5 +94,6 @@ export {
     EditProductPage,
     EditProduct,
     ExtensionPannel,
-    FAQ
+    FAQ,
+    Regulations
 }

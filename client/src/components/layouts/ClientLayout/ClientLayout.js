@@ -7,7 +7,7 @@ import {
     Contact,
     FAQPage,
     Home,
-    Regulations,
+    RegulationsPage,
     SingleProductPage
   } from '../../index';
 
@@ -20,7 +20,7 @@ import {
           <Route path="/cart" exact component={ CartPage } />
           <Route path="/contact" exact component={ Contact } />
           <Route path="/faq" exact component={ FAQPage } />
-          <Route path="/regulations" exact component={ Regulations } />
+          <Route path="/regulations" exact component={ RegulationsPage } />
         </Switch>
       </MainLayout>
     );

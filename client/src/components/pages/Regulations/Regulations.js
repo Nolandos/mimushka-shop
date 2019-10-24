@@ -1,9 +1,8 @@
 import React from 'react';
+import { Regulations } from '../../index';
 
-const Regulations = () => (
-  <div>
-    <h1>Regulations</h1>
-  </div>
+const RegulationsPage = () => (
+    <Regulations />
 );
 
-export default Regulations;
+export default RegulationsPage;
