@@ -19,7 +19,7 @@ const Contact = () => {
                 ['success']: res.data, 
                 ['error']: null,
                 ['pending']: false
-            });
+            });   
         } catch(e) {
             setStatus({
                 ['error']: e.response.data, 
@@ -36,6 +36,7 @@ const Contact = () => {
             <h1>Kontakt</h1>
             <EmailForm 
                 sendEmail={ sendEmail }
+                success = {status.success}
                 pending={ status.pending }
             />
         </div>
