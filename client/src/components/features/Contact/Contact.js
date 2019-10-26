@@ -22,7 +22,7 @@ const Contact = () => {
             });   
         } catch(e) {
             setStatus({
-                ['error']: e.response.data, 
+                ['error']: e.response.data || 'nie wysłano', 
                 ['success']: null,
                 ['pending']: false
             });

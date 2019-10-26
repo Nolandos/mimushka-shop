@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ShopCartProduct.scss';
 import { PRODUCTS_IMAGE_URL } from '../../../config';
 import { HtmlBox } from '../../index';
+import  cutText  from '../../../utils/cutText';
 
 const ShopCartProduct = ({ id, image, name, description, price, addUnit, removeUnit, amount, removeProduct }) => {
     const [units, setUnits ] = useState (amount || 1);
@@ -26,10 +27,13 @@ const ShopCartProduct = ({ id, image, name, description, price, addUnit, removeU
             <div className="shop-cart-product__content">
                 <div className="shop-cart-product__name">{ name }</div>
                 <div className="shop-cart-product__description">
-                    <HtmlBox>{ description }</HtmlBox>
+                    <HtmlBox>{ cutText(description, 120) }</HtmlBox>
                 </div>
             </div>
-            <div className="shop-cart-product__price">{ price }</div>
+            <div className="shop-cart-product__price">
+                <p>Cena:</p>
+                { price } zł
+            </div>
             <div className="shop-cart-product__operations">
                 <div className="shop-cart-product__add-product">
                     <button onClick={ removeUnitOfProduct } className="btn-remove">-</button>
