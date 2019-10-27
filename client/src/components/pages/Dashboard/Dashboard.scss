@@ -8,15 +8,26 @@
 
     .sidebar {
         height: 90vh;
-        width: 14%;
+        width: 20%;
         position: absolute;
-        border-right: 1px solid $color-text-light;
+
+        &__hamburger {
+            left: 15px;
+        }
+
+        .filter-icon {
+            display: none;
+        }     
     }
 
     .navbar {
-        border-bottom: 1px solid $color-text-light;
-        height: 10vh;
+        height: 60px;
         width: 100%;
+        background-color: #ee5253;
+
+        .navbar__hamburger {
+            display: none;
+        }
     }
 
     .main-menu {
@@ -35,11 +46,60 @@
     }
     
     &__content {
-        //border: 2px solid blue;
         padding: 25px;
-        width: 85%;
+        width: 80%;
         position: relative;
-        left: 15%;
+        left: 20%;
         height: 90vh;
+        z-index: 1;
+     
+    }
+}
+
+@media (max-width: 768px) { 
+    .dashboard {
+        .navbar {
+            position: fixed;
+            top: 0;
+            z-index: 6;
+        }
+
+        .main-menu {
+           margin-top: 0;
+
+           >li {
+                >a {
+                    color: #fff;
+                }   
+            }
+        }
+
+        .sidebar {
+            width: 0;
+        }
+        
+        &__content {
+            width: 100%;
+            margin-top: 55px;
+            left: 0;
+        }
+    }    
+}
+
+@media (max-width: 768px) { 
+    .dashboard {
+        &__content {
+            padding: 25px 5px;
+        }
+        .new-product {
+            .product-form {
+                flex-direction: column;
+
+                &__wrapper {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+        }
     }
 }

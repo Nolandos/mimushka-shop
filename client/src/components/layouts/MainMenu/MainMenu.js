@@ -8,6 +8,10 @@ const MainMenu = ({ links, location }) => {
   const closeMenu = () => {
     document.querySelector('.navbar__menu').classList.remove('open');
     document.querySelector('.navbar__hamburger').classList.remove('open');
+    if(document.querySelector('.dashboard')) {
+      document.querySelector('.sidebar__overlay').classList.remove('open');
+      document.querySelector('.sidebar__hamburger').classList.remove('open');
+    }
   }
   return (
     <ul className="main-menu">

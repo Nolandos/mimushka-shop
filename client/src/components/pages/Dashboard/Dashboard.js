@@ -18,11 +18,6 @@ import {
 const DashboardPage = () => {
     const [links] = useState([
         { 
-            path: '/admin/dashboard/orders', 
-            title: <div className="menu-option"><ListIcon/>Zamówienia</div>, 
-            className: 'orders' 
-        },
-        { 
             path: '/admin/dashboard/new-product', 
             title: <div className="menu-option"><AddIcon/>Nowy Produkt</div>, 
             className: 'new-product' 
@@ -36,9 +31,7 @@ const DashboardPage = () => {
     
     return (
         <div className="dashboard">
-            <NavBar>
-                <Logo/>
-            </NavBar>
+            <NavBar/>
             <Sidebar>
               <MainMenu links={ links } />
             </Sidebar>

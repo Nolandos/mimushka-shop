@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Pagination.scss';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Pagination = (props) => {
-    const [presentPage, setPage] = useState(props.initialPage || 1);
-    const { pages, onPageChange } = props;
+    const { pages, onPageChange, products, initialPage } = props;
+    const [presentPage, setPage] = useState(initialPage || 1);
+   
+    useEffect(() => {
+        setPage(1);
+        onPageChange(1);
+      },[products]);
 
     const changePage = (newPage) => {
         setPage(newPage);

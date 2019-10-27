@@ -34,11 +34,6 @@ const ProductsList = () => {
           { title: 'Nazwa', field: 'name' },
           { title: 'Cena', field: 'price', type: 'numeric' },
           { title: 'Informacja', field: 'additionalInfo' },
-          { 
-            title: 'Opis', 
-            field: 'description', 
-            render: rowData => <HtmlBox>{ rowData.description }</HtmlBox>
-          },
         ],
         data: products,
         redirect: false,

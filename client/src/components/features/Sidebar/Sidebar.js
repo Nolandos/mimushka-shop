@@ -1,10 +1,10 @@
 import React from 'react';
 import './Sidebar.scss';
-import { FaFilter, FaArrowLeft } from "react-icons/fa";
+import { FaFilter, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Sidebar = ({ children }) => {
-  const sidebarOpen = e => {
+  const toggleSidebar = e => {
     e.stopPropagation();
     document.querySelector('.navbar__menu').classList.remove('open');
     document.querySelector('.navbar__hamburger').classList.remove('open');
@@ -14,11 +14,12 @@ const Sidebar = ({ children }) => {
 
   return (
     <div className="sidebar">
-      <button onClick={ sidebarOpen } className="sidebar__hamburger">
+      <button onClick={ toggleSidebar } className="sidebar__hamburger">
         <FaFilter className="filter-icon" />
         <FaArrowLeft className="close-icon" />
+        <FaArrowRight className="open-icon" />
       </button>
-      <div onClick={ sidebarOpen } className="sidebar__overlay">
+      <div onClick={ toggleSidebar } className="sidebar__overlay">
         <div onClick={e => e.stopPropagation() } className="sidebar__menu">
           {children}
         </div>

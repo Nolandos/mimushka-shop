@@ -18,15 +18,17 @@ const Products = props => {
   const [ endAt, setEndAt ] = useState(6);
   const [ pagination, setPagination ] = useState(props.pagination);
 
+  const loadProductsPage = page => {
+    setStartAt((page - 1) * productsPerPage);
+    setEndAt(page * 6);
+  }
+
   useEffect(() => {
     dispatch(loadProductsRequest(filters));
     if(pagination === undefined) setPagination(true); 
   },[filters]);
 
-  const loadProductsPage = page => {
-    setStartAt((page - 1) * productsPerPage);
-    setEndAt(page * 6);
-  }
+
 
   return (
     <div className="products">
@@ -37,7 +39,7 @@ const Products = props => {
           <PreviewProduct {...item} key={item.id} />
         </Draggable>
         )}
-      <Pagination pages={pages} initialPage={initialPage} onPageChange={(page) => loadProductsPage(page) } />
+      <Pagination products={products} pages={pages} initialPage={initialPage} onPageChange={(page) => loadProductsPage(page) } />
     </div>
   ) 
 };
