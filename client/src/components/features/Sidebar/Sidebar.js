@@ -1,7 +1,6 @@
 import React from 'react';
 import './Sidebar.scss';
 import { FaFilter, FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Sidebar = ({ children }) => {
   const toggleSidebar = e => {

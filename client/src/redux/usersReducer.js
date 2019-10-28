@@ -30,7 +30,7 @@ export const checkUser = (login, password) => {
             await new Promise((resolve, reject) => setTimeout(resolve, 500));
             let res = await axios.post(`${API_URL}/login`, userData);
             const { token } = res.data;
-            await localStorage.setItem("jwtToken", token);
+            await localStorage.setItem('jwtToken', token);
             await setAuthToken(token);
             const decoded = await jwtDecode(token);
             dispatch(setCurrentUser(decoded));
@@ -39,6 +39,12 @@ export const checkUser = (login, password) => {
             dispatch(errorRequest(e.response.data, requestName));
         }
     }; 
+};
+
+export const logoutUser = () => dispatch => {
+    localStorage.removeItem("jwtToken");
+    setAuthToken(false);
+    dispatch(setCurrentUser({}));
 };
 
 const initialState = {

@@ -8,8 +8,8 @@ const AdminLayout = () => {
     return (
         <div className="admin-layout">
             <Switch>
-                <Route path="*/login" exact component={LoginPage} />
-                <PrivateRoute path="*/dashboard" component={DashboardPage} />  
+                <Route path="/admin/login" exact component={LoginPage} />
+                <PrivateRoute path="/admin/dashboard" component={DashboardPage} />  
             </Switch>
         </div>
     )

@@ -17,13 +17,21 @@
 
         .filter-icon {
             display: none;
-        }     
+        }
     }
 
     .navbar {
         height: 60px;
         width: 100%;
         background-color: #ee5253;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 20px;
+
+        .logout-icon {
+            color: #fff;
+            cursor: pointer;
+        }
 
         .navbar__hamburger {
             display: none;

@@ -30,7 +30,7 @@ const Login = () => {
     }
 
     if(isLogged === true) return <Redirect to="/admin/dashboard" />
-    
+
     return (
         <div className="login-panel">
             <AccountCircleIcon />
@@ -49,6 +49,7 @@ const Login = () => {
                 <TextField
                     id="password"
                     label="Hasło"
+                    type="password"
                     margin="normal"
                     variant="outlined"
                     onChange={handleChange('password')}
