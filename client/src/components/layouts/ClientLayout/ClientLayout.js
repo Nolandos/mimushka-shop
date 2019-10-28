@@ -8,7 +8,8 @@ import {
     FAQPage,
     Home,
     RegulationsPage,
-    SingleProductPage
+    SingleProductPage,
+    NotFoundPage
   } from '../../index';
 
   function ClientLayout() {
@@ -21,6 +22,7 @@ import {
           <Route path="/contact" exact component={ ContactPage } />
           <Route path="/faq" exact component={ FAQPage } />
           <Route path="/regulations" exact component={ RegulationsPage } />
+          <Route component={ NotFoundPage } />
         </Switch>
       </MainLayout>
     );

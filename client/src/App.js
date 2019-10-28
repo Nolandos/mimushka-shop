@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { 
   ClientLayout,
-  AdminLayout
+  AdminLayout,
+  NotFoundPage
 } from './components';
 
 
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route path="/admin" component={AdminLayout} />
         <Route path="/" component={ClientLayout} />
+        <Route component={NotFoundPage} />
       </Switch>
   );
 }

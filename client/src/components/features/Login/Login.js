@@ -29,7 +29,7 @@ const Login = () => {
         dispatch(checkUser(state.login, state.password));
     }
 
-    if(isLogged === true) return <Redirect to="/admin/dashboard" />
+    if(isLogged === true) return <Redirect to="/admin/dashboard/new-product" />
 
     return (
         <div className="login-panel">

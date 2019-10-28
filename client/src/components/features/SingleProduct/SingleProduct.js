@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadSingleProductRequest } from '../../../redux/productsReducer';
 import { addProduct } from '../../../redux/shopCartReducer';
 import './SingleProduct.scss';
-import ScrollAnimation from 'react-animate-on-scroll';
 import { PRODUCTS_IMAGE_URL } from '../../../config';
 
 import { Button, HtmlBox } from '../../index';

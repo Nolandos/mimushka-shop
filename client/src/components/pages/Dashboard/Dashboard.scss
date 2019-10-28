@@ -60,6 +60,13 @@
         left: 20%;
         height: 90vh;
         z-index: 1;
+
+        .not-found {
+            position: fixed;
+            top: 60px;
+            width: 100%;
+            left: 0;
+        }
      
     }
 }

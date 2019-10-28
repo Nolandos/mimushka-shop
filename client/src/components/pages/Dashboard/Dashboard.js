@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../../redux/usersReducer';
 import './Dashboard.scss';
@@ -15,7 +15,8 @@ import {
     PrivateRoute,
     ProductsListPage,
     NewProductPage,
-    EditProductPage } from '../../index';
+    EditProductPage,
+    NotFoundPage } from '../../index';
 
 const DashboardPage = () => {
     const dispatch = useDispatch();
@@ -48,10 +49,11 @@ const DashboardPage = () => {
             </Sidebar>
             <div className="dashboard__content">
                 <Switch>
-                    <PrivateRoute path="/admin/dashboard/orders" exact component={ OrdersPage }/>
-                    <PrivateRoute path="/admin/dashboard/products-list" exact component={ ProductsListPage }/>
-                    <PrivateRoute path="/admin/dashboard/new-product"  component={ NewProductPage }/>
+                    <PrivateRoute path="/admin/dashboard/orders/" exact component={ OrdersPage }/>
+                    <PrivateRoute path="/admin/dashboard/products-list/" exact component={ ProductsListPage }/>
+                    <PrivateRoute path="/admin/dashboard/new-product/" exact  component={ NewProductPage }/>
                     <PrivateRoute path="/admin/dashboard/edit-product/:id" exact component={ EditProductPage }/>
+                    <Route component={ NotFoundPage } /> 
                 </Switch>
             </div>
         </div>

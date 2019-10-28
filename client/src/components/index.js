@@ -48,6 +48,8 @@ import ExtensionPannel from './common/ExtensionPannel/ExtensionPannel';
 import Regulations from './features/Regulations/Regulations';
 import Contact from './features/Contact/Contact';
 import EmailForm from './common/EmailForm/EmailForm';
+import NotFoundPage from './pages/NotFound/NotFound';
+import NotFound from './features/NotFound/NotFound';
 
 export {
 	Logo,
@@ -99,5 +101,7 @@ export {
     FAQ,
     Regulations,
     Contact,
-    EmailForm 
+    EmailForm,
+    NotFoundPage,
+    NotFound 
 }
