@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /inne
+config.js
 
 # testing
 /coverage
