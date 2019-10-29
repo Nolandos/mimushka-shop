@@ -18,12 +18,12 @@
     .preview-product__additional-info {
         height: 30px;
         font-weight: bold;
-        color: #000;
+        color: $color-secondary;
     }
     .preview-product__photo-box {
         margin-top: 20px;
         width: 150px;
-        height: 150px;
+        height: 100px;
         display: flex;
         align-items: center;
         align-self: center;
@@ -31,18 +31,25 @@
 
         .preview-product__photo {
             display: block;
-            max-height: 150px;
+            max-height: 100px;
             max-width: 150px;
         }
     }
 
     .preview-product__name {
         margin-top: 20px;
+        font-weight: bold;
         color: #000;
     }
 
     .preview-product__price {
+        margin-top: 15px;
         color: $color-text-candy-light;
+
+        &::before {
+            content: 'Cena: ';
+            color: $color-text;
+        }
     }
 
     &:hover {
