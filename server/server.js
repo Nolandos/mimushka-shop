@@ -5,7 +5,6 @@ const config = require('./config');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
-const loadTestData = require('./testData');
 const path = require('path');
 const fileUpload = require('express-fileupload');
 const passport = require("passport");
@@ -48,7 +47,6 @@ let db = mongoose.connection;
 
 db.once('open', () => {
     console.log('Connected to the database');
-    loadTestData();
 });
 db.on('error', (err) => console.log('Error ' + err));
 

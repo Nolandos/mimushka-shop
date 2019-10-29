@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { PRODUCTS_IMAGE_URL } from '../../../config';
 
 const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, amount, ...props }) => {
 
@@ -18,7 +19,7 @@ const ProductForm = ({ handleSubmit, name, price, additionalInfo, description, a
         amount: 1
     });
     const [image, setImage] = useState('');
-    const [tempImageSrc, setTempImageSrc] = useState(props.image ?  `http://localhost:8000/images/${props.image}` : '');
+    const [tempImageSrc, setTempImageSrc] = useState(props.image ?  `${PRODUCTS_IMAGE_URL}${props.image}` : '');
 
     const handleChangeImage = file => {
         setImage(file);
