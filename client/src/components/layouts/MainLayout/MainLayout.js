@@ -16,7 +16,7 @@ import {
 const MainLayout = ({ children }) => {
     const dispatch = useDispatch();
     const [links] = useState([
-        { path: '/', title: 'Home', className: 'title' },
+        { path: '/', title: 'Produkty', className: 'title' },
         { path: '/faq', title: 'FAQ', className: 'faq' },
         { path: '/contact', title: 'Kontakt' , className: 'contact' },
         { path: '/regulations', title: 'Regulamin', className: 'regulations' },

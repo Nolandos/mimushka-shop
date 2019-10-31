@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'react-animated-css';
 import { MdInfoOutline, MdDone, MdErrorOutline } from 'react-icons/md';
 
 import './Alert.scss';
@@ -23,12 +22,10 @@ const Alert = ({ variant = '', children, ...otherProps }) => {
   };
 
   return (
-    <Animated animationIn="fadeIn" animationOut="fadeOut">
       <div {...otherProps} className={`alert alert--${variant}`}>
         {icon()}
         <span className="alert__desc">{children}</span>
       </div>
-    </Animated>
   )
 
 };

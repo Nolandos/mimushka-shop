@@ -79,6 +79,17 @@
     }
 }
 
+@media (max-width: 380px) {
+    .single-product {
+        &__photo-box {
+            > img {
+                width: 100%;
+            }
+        }
+            
+    }
+}
+
 @media (max-width: 320px) { 
     .single-product {
         .button {

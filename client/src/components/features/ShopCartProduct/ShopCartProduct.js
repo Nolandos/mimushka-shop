@@ -16,7 +16,8 @@ const ShopCartProduct = ({ id, image, name, description, price, addUnit, removeU
         if(units > 1) {
             setUnits(units - 1);
             removeUnit(id)
-        };
+        } 
+        else if(units === 1) removeProduct(id);
     }
 
     return (

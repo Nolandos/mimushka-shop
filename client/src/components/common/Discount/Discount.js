@@ -10,7 +10,7 @@ const Discount = () => {
     const discountName = useSelector(({shopCart}) => shopCart.discountCode.name) || '';
 
     const checkCode = () => {
-           dispatch(checkDiscountCodeRequest((codeInput.current.value).toUpperCase()));   
+            dispatch(checkDiscountCodeRequest((codeInput.current.value).toUpperCase()));                  
     }
 
     return (

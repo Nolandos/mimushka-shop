@@ -1,9 +1,12 @@
 .footer {
     margin-top: 5%;
     height: 50px;
+    width: 100%;
+    max-width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
 
     .footer__signature {
         font-size: 0.7em;

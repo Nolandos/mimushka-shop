@@ -30,25 +30,19 @@ export const setDiscount = (payload) => ({ payload, type: SET_DISCOUNT });
 //THUNKS
 export const checkDiscountCodeRequest = (name) => {
     return async dispatch => { 
-      try {
-        if (name === '') {
-            dispatch(setDiscount(0));
-            dispatch(resetRequest(requestName));
-        } else { 
+        if(name.length > 3) {
             let res = await axios.get(`${API_URL}/codes/${name}`);
             if(res.data) {
                 await dispatch(setDiscount(res.data));
                 dispatch(endRequest(requestName));
-            }
-            else {
+            } else {
                 await dispatch(setDiscount(0));
                 dispatch(errorRequest('Błędny kod rabatowy', requestName));
             } 
-        }   
-      } catch(e) {
-        await dispatch(setDiscount(0));
-        dispatch(errorRequest('Błędny kod rabatowy', requestName));
-      }
+        } else if (name.length === 0 ) {
+            await dispatch(setDiscount(0));
+            dispatch(endRequest(requestName));
+        }          
     };
   };
  

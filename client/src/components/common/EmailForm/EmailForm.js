@@ -14,7 +14,8 @@ const EmailSchema = yup.object().shape({
     subject: yup.string()
         .required('Temat jest wymagany!'),
     content: yup.string()
-        .required('Wiadomość jest wymagana!'),
+        .required('Wiadomość jest wymagana!')
+        .test('test', 'Wiadomość jest wymagana!', value => value === undefined || value.trim().length > 0 )     
   });
 
 const EmailForm = ({ sendEmail, pending, success }) => {
@@ -27,6 +28,7 @@ const EmailForm = ({ sendEmail, pending, success }) => {
         }}
         validationSchema={ EmailSchema }
         onSubmit={ async (values, { setSubmitting, resetForm }) => { 
+           
             await sendEmail(values);
             resetForm(); 
             setSubmitting(false);
@@ -82,6 +84,7 @@ const EmailForm = ({ sendEmail, pending, success }) => {
                     color="primary"
                     type="submit"
                     className="email-form__sumbit-button"
+                    disabled={ isSubmitting }
                     endIcon={ pending === false ? <SendIcon /> : <SpinningCircles className="loader" /> }
                 >
                     Wyślij wiadomość
