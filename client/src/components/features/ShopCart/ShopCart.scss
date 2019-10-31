@@ -4,7 +4,6 @@
     &__summary {
         display: flex;
         flex-direction: column;
-        
         align-items: flex-end;
         padding: $base-size;
         margin-top: 5%;
@@ -20,6 +19,7 @@
     }
 
     &__alert-wrapper {
+        margin-top: 5%;
         width: 100%;
         justify-content: center;
         align-items: center;
@@ -27,7 +27,7 @@
         flex-direction: column;
 
         .alert {
-            width: 60%;
+            width: 100%;
         }
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.scss';
+import './Sidebarr.scss';
 import { FaFilter, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Sidebar = ({ children }) => {
