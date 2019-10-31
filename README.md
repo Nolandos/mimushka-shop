@@ -2,9 +2,9 @@
 MERN app for online shop with client and admin layout. You can add product on shop cart using buttons or Drag & Drop options, use discount code and Admin dashboard add new product, edit or remove existing product. 
 
 # Demo : 
-App was deployed on heroku server:
+App was deployed on VPS server:
 
-https://mimushka-shop.herokuapp.com/
+http://mimushka-shop.pl/
 
 # Technologies :
 ![react](./files/react.png) ![redux](./files/redux.png)  ![hooks](./files/hooks.png)  ![mongoexpressnode](./files/mongoexpressnode.jpeg)

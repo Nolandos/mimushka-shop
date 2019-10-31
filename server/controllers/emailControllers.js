@@ -14,14 +14,14 @@ exports.sendEmail = async (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'nolandos.test@gmail.com',
-            pass: '7NOLANDtest123@'
+            user: config.EMAIL,
+            pass: config.EMAIL_PASS
         }
     });
 
     const mailOptions = {
         from: req.body.address, // sender address
-        to: 'nolandos.test@gmail.com', // list of receivers
+        to: config.EMAIL, // list of receivers
         subject: req.body.subject, // Subject line
         html: htmlTemplate(req.body.address, req.body.content) // plain text body
       };

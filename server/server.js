@@ -54,4 +54,8 @@ db.on('error', (err) => console.log('Error ' + err));
 //Listening on PORT
 app.listen(config.PORT, () => {
     console.log('Server is running on port :', config.PORT);
+    console.log(config.PORT);
+    console.log(config.DB);
+    console.log(config.EMAIL)
+    console.log(config.EMAIL_PASS);
 });
