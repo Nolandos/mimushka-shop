@@ -4,7 +4,7 @@ MERN app for online shop with client and admin layout. You can add product on sh
 # Demo : 
 App was deployed on VPS server:
 
-http://mimushka-shop.pl/
+https://mimushka-shop.pl/
 
 # Technologies :
 ![react](./files/react.png) ![redux](./files/redux.png)  ![hooks](./files/hooks.png)  ![mongoexpressnode](./files/mongoexpressnode.jpeg)
@@ -26,7 +26,7 @@ http://mimushka-shop.pl/
 ![photo_4](./files/photo_4.png)
 
 # Tasks :
-`yarn install` ro install package
+`yarn install` to install package
 `yarn start` to start project 
 
 <b> ENJOY !</b>
